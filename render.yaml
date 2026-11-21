@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: github-radar
+    runtime: python
+    plan: free
+    region: singapore
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python -m server.app --host 0.0.0.0 --port $PORT"
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      # Prompted once when the Blueprint is created; never stored in the repo.
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: RADAR_HOST
+        value: 0.0.0.0
+      # Hosted mode: disable the in-page token writer and trust the platform proxy.
+      - key: RADAR_ALLOW_LOCAL_TOKEN_WRITE
+        value: "0"
+      - key: RADAR_TRUST_PROXY
+        value: "1"
+      - key: RADAR_LIVE_CACHE_TTL
+        value: "90"
+      - key: RADAR_LIVE_RATE_LIMIT
+        value: "30"
+      - key: RADAR_LIVE_RATE_WINDOW
+        value: "60"

@@ -1,0 +1,973 @@
+{
+  "meta": {
+    "version": 3,
+    "mode": "curated-local",
+    "generatedAt": "2026-11-12T12:18:27.577129Z",
+    "source": "GitHub 官方 API + 官方 README + 本地安全初筛",
+    "notice": "所有推荐均为公开项目；开源安全初筛不替代完整代码审计。"
+  },
+  "topics": [
+    {
+      "id": "ai-tools",
+      "label": "AI 学习与使用",
+      "short": "提示词、工作流与模型应用",
+      "color": "#6c5ce7"
+    },
+    {
+      "id": "micro-product",
+      "label": "小产品 / 副业",
+      "short": "从想法到可运行原型的轻量工具",
+      "color": "#00b894"
+    },
+    {
+      "id": "presentation",
+      "label": "演讲与 PPT",
+      "short": "幻灯片、模板与可视化叙事",
+      "color": "#d97745"
+    },
+    {
+      "id": "research",
+      "label": "科研效率",
+      "short": "文献、数据与可复现工作流",
+      "color": "#8b6d9c"
+    },
+    {
+      "id": "content",
+      "label": "自媒体内容",
+      "short": "文案、图片、视频与分发工具",
+      "color": "#e84393"
+    },
+    {
+      "id": "music",
+      "label": "音乐制作",
+      "short": "编曲、音频处理与创作工具",
+      "color": "#0984e3"
+    }
+  ],
+  "items": [
+    {
+      "id": "prompt-papers",
+      "type": "project",
+      "title": "Prompt Engineering Guide",
+      "repo": "dair-ai/Prompt-Engineering-Guide",
+      "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
+      "description": "系统整理提示工程方法、论文与最佳实践，是建立 AI 使用框架的起点。",
+      "why": "与其收藏零散提示词，不如先建立一套可迁移的提示设计思路，写论文、做产品和做自媒体都能复用。",
+      "language": "TypeScript",
+      "topicIds": [
+        "ai-tools"
+      ],
+      "author": "DAIR.AI",
+      "readMinutes": 12,
+      "signal": 97,
+      "tags": [
+        "Prompt",
+        "LLM",
+        "Guide"
+      ],
+      "featured": true,
+      "metrics": {
+        "stars": 80006,
+        "createdAt": "2022-12-16T16:04:50Z",
+        "pushedAt": "2026-03-11T20:09:13Z",
+        "archived": false,
+        "license": "MIT"
+      },
+      "sourceVerification": {
+        "status": "verified",
+        "method": "GitHub official API + official README review"
+      }
+    },
+    {
+      "id": "supabase",
+      "type": "project",
+      "title": "Supabase",
+      "repo": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase",
+      "description": "开源 Firebase 替代方案，提供 Postgres 数据库、认证、实时订阅和边缘函数。",
+      "why": "做小产品需要用户登录、数据库和实时数据时，比从零搭后端省大量时间。",
+      "language": "TypeScript",
+      "topicIds": [
+        "micro-product"
+      ],
+      "author": "Supabase",
+      "readMinutes": 10,
+      "signal": 93,
+      "tags": [
+        "Postgres",
+        "Backend",
+        "Realtime"
+      ],
+      "featured": false,
+      "metrics": {
+        "stars": 114916,
+        "createdAt": "2019-10-12T05:56:49Z",
+        "pushedAt": "2026-11-12T12:08:15Z",
+        "archived": false,
+        "license": "Apache-2.0"
+      },
+      "sourceVerification": {
+        "status": "verified",
+        "method": "GitHub official API + official README review"
+      }
+    },
+    {
+      "id": "slidev",
+      "type": "project",
+      "title": "Slidev",
+      "repo": "slidevjs/slidev",
+      "url": "https://github.com/slidevjs/slidev",
+      "description": "面向开发者的 Markdown 演示工具，把代码高亮、交互组件和网页式视觉放进同一份幻灯片。",
+      "why": "适合课堂汇报、竞赛路演和技术分享；把内容写成 Markdown，改一次就能同步更新整套 PPT。",
+      "language": "TypeScript",
+      "topicIds": [
+        "presentation"
+      ],
+      "author": "Anthony Fu",
+      "readMinutes": 6,
+      "signal": 95,
+      "tags": [
+        "Markdown",
+        "Slides",
+        "Vue"
+      ],
+      "featured": false,
+      "metrics": {
+        "stars": 49446,
+        "createdAt": "2021-04-24T01:25:23Z",
+        "pushedAt": "2026-11-05T06:29:21Z",
+        "archived": false,
+        "license": "MIT"
+      },
+      "sourceVerification": {
+        "status": "verified",
+        "method": "GitHub official API + official README review"
+      }
+    },
+    {
+      "id": "marp",
+      "type": "project",
+      "title": "Marp",
+      "repo": "marp-team/marp",
+      "url": "https://github.com/marp-team/marp",
+      "description": "用 Markdown 生成幻灯片的轻量工具，重点是稳定的转换流程和自动化能力。",
+      "why": "如果你更习惯 VS Code，Marp 插件能让你直接在编辑器里写演讲稿并导出 PDF/PPTX。",
+      "language": "TypeScript",
+      "topicIds": [
+        "presentation",
+        "research"
+      ],
+      "author": "Marp team",
+      "readMinutes": 5,
+      "signal": 88,
+      "tags": [
+        "Markdown",
+        "Slides",
+        "CLI"
+      ],
+      "featured": false,
+      "metrics": {
+        "stars": 12741,
+        "createdAt": "2018-03-25T12:47:38Z",
+        "pushedAt": "2026-11-07T09:29:51Z",
+        "archived": false,
+        "license": "MIT"
+      },
+      "sourceVerification": {
+        "status": "verified",
+        "method": "GitHub official API + official README review"
+      }
+    },
+    {
+      "id": "pptxgenjs",
+      "type": "project",
+      "title": "PptxGenJS",
+      "repo": "gitbrent/PptxGenJS",
+      "url": "https://github.com/gitbrent/PptxGenJS",
+      "description": "在 JavaScript 中创建真正的 PowerPoint 文件，适合批量报表和模板化演示。",
+      "why": "学校答辩或竞赛要求必须交 .pptx 时，用它把数据/图表自动灌进模板，比手工排版稳得多。",
+      "language": "JavaScript",
+      "topicIds": [
+        "presentation",
+        "research"
+      ],
+      "author": "Brent Ely",
+      "readMinutes": 7,
+      "signal": 87,
+      "tags": [
+        "PPTX",
+        "Automation",
+        "Reports"
+      ],
+      "featured": false,
+      "metrics": {
+        "stars": 6376,
+        "createdAt": "2016-02-23T02:15:29Z",
+        "pushedAt": "2025-11-28T20:17:14Z",
+        "archived": false,
+        "license": "MIT"
+      },
+      "sourceVerification": {
+        "status": "verified",
+        "method": "GitHub official API + official README review"
+      }
+    },
+    {
+      "id": "zotero",
+      "type": "project",
+      "title": "Zotero",
+      "repo": "zotero/zotero",
+      "url": "https://github.com/zotero/zotero",
+      "description": "开源文献管理工具，支持抓取网页、整理引用和生成参考文献。",
+      "why": "本科生做科研第一步往往是文献管理；Zotero 免费且插件丰富，是建立科研工作流的基础。",
+      "language": "JavaScript",
+      "topicIds": [
+        "research"
+      ],
+      "author": "Zotero",
+      "readMinutes": 8,
+      "signal": 94,
+      "tags": [
+        "Reference",
+        "Literature",
+        "Academic"
+      ],
+      "featured": false,
+      "metrics": {
+        "stars": 15927,
+        "createdAt": "2011-10-27T07:46:48Z",
+        "pushedAt": "2026-11-11T21:53:11Z",
+        "archived": false,
+        "license": "AGPL-3.0"
+      },
+      "sourceVerification": {
+        "status": "verified",
+        "method": "GitHub official API + official README review"
+      }
+    },
+    {
+      "id": "langgraph",
+      "type": "project",
+      "title": "LangGraph",
+      "repo": "langchain-ai/langgraph",
+      "url": "https://github.com/langchain-ai/langgraph",
+      "description": "用图结构组织有状态智能体工作流，重点处理多步骤任务、分支和人工介入。",
+      "why": "当你开始把文献综述、数据分析或内容生成流程化时，它提供比单条提示更清晰的控制结构。",
+      "language": "Python",
+      "topicIds": [
+        "ai-tools",
+        "research"
+      ],
+      "author": "LangChain",
+      "readMinutes": 10,
+      "signal": 89,
+      "tags": [
+        "Agents",
+        "Workflow",
+        "Python"
+      ],
+      "featured": false,
+      "metrics": {
+        "stars": 44846,
+        "createdAt": "2023-08-09T18:33:12Z",
+        "pushedAt": "2026-11-12T01:43:56Z",
+        "archived": false,
+        "license": "MIT"
+      },
+      "sourceVerification": {
+        "status": "verified",
+        "method": "GitHub official API + official README review"
+      }
+    },
+    {
+      "id": "audiocraft",
+      "type": "project",
+      "title": "AudioCraft",
+      "repo": "facebookresearch/audiocraft",
+      "url": "https://github.com/facebookresearch/audiocraft",
+      "description": "Meta 开源的音频生成与研究框架，包含 MusicGen 等文本到音乐的模型。",
+      "why": "对音乐制作初学者来说，它是理解 AI 作曲原理和生成伴奏的入口，不需要先买昂贵插件。",
+      "language": "Python",
+      "topicIds": [
+        "music",
+        "ai-tools"
+      ],
+      "author": "Meta FAIR",
+      "readMinutes": 11,
+      "signal": 93,
+      "tags": [
+        "Music",
+        "AI-Audio",
+        "MusicGen"
+      ],
+      "featured": false,
+      "metrics": {
+        "stars": 23854,
+        "createdAt": "2023-06-08T06:41:36Z",
+        "pushedAt": "2026-03-03T21:50:32Z",
+        "archived": false,
+        "license": "MIT（代码）"
+      },
+      "sourceVerification": {
+        "status": "verified",
+        "method": "GitHub official API + official README review"
+      }
+    },
+    {
+      "id": "lmms",
+      "type": "project",
+      "title": "LMMS",
+      "repo": "LMMS/lmms",
+      "url": "https://github.com/LMMS/lmms",
+      "description": "开源数字音频工作站（DAW），支持 MIDI、采样、合成器和 VST 插件。",
+      "why": "课余发展音乐制作爱好，LMMS 是零成本入门的完整 DAW，适合先建立编曲流程。",
+      "language": "C++",
+      "topicIds": [
+        "music"
+      ],
+      "author": "LMMS Team",
+      "readMinutes": 8,
+      "signal": 89,
+      "tags": [
+        "DAW",
+        "MIDI",
+        "VST"
+      ],
+      "featured": false,
+      "metrics": {
+        "stars": 10644,
+        "createdAt": "2014-01-09T20:43:43Z",
+        "pushedAt": "2026-11-10T22:04:55Z",
+        "archived": false,
+        "license": "GPL-2.0"
+      },
+      "sourceVerification": {
+        "status": "verified",
+        "method": "GitHub official API + official README review"
+      }
+    },
+    {
+      "id": "spleeter",
+      "type": "project",
+      "title": "Spleeter",
+      "repo": "deezer/spleeter",
+      "url": "https://github.com/deezer/spleeter",
+      "description": "基于深度学习的人声与伴奏分离工具，可把已有歌曲拆成多个音轨。",
+      "why": "做 remix、翻唱或练习扒带时，把原曲拆成人声和伴奏能大幅降低学习门槛。",
+      "language": "Python",
+      "topicIds": [
+        "music"
+      ],
+      "author": "Deezer",
+      "readMinutes": 6,
+      "signal": 86,
+      "tags": [
+        "Stem-Separation",
+        "Audio",
+        "ML"
+      ],
+      "featured": false,
+      "metrics": {
+        "stars": 28526,
+        "createdAt": "2019-09-26T15:40:46Z",
+        "pushedAt": "2026-10-28T15:05:22Z",
+        "archived": false,
+        "license": "MIT"
+      },
+      "sourceVerification": {
+        "status": "verified",
+        "method": "GitHub official API + official README review"
+      }
+    },
+    {
+      "id": "shadcn-ui",
+      "type": "project",
+      "title": "shadcn/ui",
+      "repo": "shadcn-ui/ui",
+      "url": "https://github.com/shadcn-ui/ui",
+      "description": "可复制到项目中的 React 组件集合，强调可访问性、可组合性和对代码的直接控制。",
+      "why": "做小产品 landing page 或自媒体工具后台时，它能让你快速搭出体面的界面。",
+      "language": "TypeScript",
+      "topicIds": [
+        "micro-product"
+      ],
+      "author": "shadcn",
+      "readMinutes": 6,
+      "signal": 88,
+      "tags": [
+        "React",
+        "Components",
+        "UI"
+      ],
+      "featured": false,
+      "metrics": {
+        "stars": 127979,
+        "createdAt": "2023-01-04T12:43:27Z",
+        "pushedAt": "2026-11-12T06:06:10Z",
+        "archived": false,
+        "license": "MIT"
+      },
+      "sourceVerification": {
+        "status": "verified",
+        "method": "GitHub official API + official README review"
+      }
+    },
+    {
+      "id": "nextjs",
+      "type": "project",
+      "title": "Next.js",
+      "repo": "vercel/next.js",
+      "url": "https://github.com/vercel/next.js",
+      "description": "生产级 React 全栈框架，覆盖路由、渲染、数据获取和部署。",
+      "why": "做小产品或自媒体站点时，Next.js 是国内就业市场也认可的现代 Web 技术栈。",
+      "language": "JavaScript",
+      "topicIds": [
+        "micro-product"
+      ],
+      "author": "Vercel",
+      "readMinutes": 8,
+      "signal": 87,
+      "tags": [
+        "React",
+        "Full-stack",
+        "Web"
+      ],
+      "featured": false,
+      "metrics": {
+        "stars": 143484,
+        "createdAt": "2016-10-05T23:32:51Z",
+        "pushedAt": "2026-11-12T12:04:10Z",
+        "archived": false,
+        "license": "MIT"
+      },
+      "sourceVerification": {
+        "status": "verified",
+        "method": "GitHub official API + official README review"
+      }
+    },
+    {
+      "id": "logseq",
+      "type": "project",
+      "title": "Logseq",
+      "repo": "logseq/logseq",
+      "url": "https://github.com/logseq/logseq",
+      "description": "本地优先的开源知识管理工具，支持双向链接、Markdown 和日记式记录。",
+      "why": "把课程笔记、科研灵感和内容选题放在一个可搜索的知识网络里，同时保留本地文件控制权。",
+      "language": "Clojure",
+      "topicIds": [
+        "research",
+        "content"
+      ],
+      "author": "Logseq",
+      "readMinutes": 8,
+      "signal": 93,
+      "tags": [
+        "Notes",
+        "Local-first",
+        "PKM"
+      ],
+      "featured": false,
+      "metrics": {
+        "stars": 45561,
+        "createdAt": "2020-05-23T00:06:06Z",
+        "pushedAt": "2026-11-12T06:32:20Z",
+        "archived": false,
+        "license": "AGPL-3.0"
+      },
+      "sourceVerification": {
+        "status": "verified",
+        "method": "GitHub official API + official README review"
+      }
+    },
+    {
+      "id": "appwrite",
+      "type": "project",
+      "title": "Appwrite",
+      "repo": "appwrite/appwrite",
+      "url": "https://github.com/appwrite/appwrite",
+      "description": "开源后端平台，包含认证、数据库、存储、云函数、消息和实时能力。",
+      "why": "做课程项目或小产品时，可以直接获得完整后端；也可以在电脑上用 Docker 自托管练习部署。",
+      "language": "TypeScript",
+      "topicIds": [
+        "micro-product"
+      ],
+      "author": "Appwrite",
+      "readMinutes": 10,
+      "signal": 94,
+      "tags": [
+        "Backend",
+        "Docker",
+        "Self-host"
+      ],
+      "featured": false,
+      "metrics": {
+        "stars": 58058,
+        "createdAt": "2019-04-08T16:36:25Z",
+        "pushedAt": "2026-11-12T12:10:01Z",
+        "archived": false,
+        "license": "BSD-3-Clause"
+      },
+      "sourceVerification": {
+        "status": "verified",
+        "method": "GitHub official API + official README review"
+      }
+    },
+    {
+      "id": "future-agi",
+      "type": "project",
+      "title": "Future AGI",
+      "repo": "future-agi/future-agi",
+      "url": "https://github.com/future-agi/future-agi",
+      "description": "面向 AI Agent 的开源评估、追踪、模拟和护栏平台，可 Docker 自托管。",
+      "why": "当你已经会调用模型，下一步最需要的是判断回答是否可靠；它能把评估、日志和上线前检查放进同一流程。",
+      "language": "Python",
+      "topicIds": [
+        "ai-tools",
+        "research"
+      ],
+      "author": "Future AGI",
+      "readMinutes": 11,
+      "signal": 91,
+      "tags": [
+        "Evals",
+        "Agents",
+        "Observability"
+      ],
+      "featured": false,
+      "metrics": {
+        "stars": 2266,
+        "createdAt": "2026-04-23T14:11:31Z",
+        "pushedAt": "2026-11-12T12:09:01Z",
+        "archived": false,
+        "license": "Apache-2.0"
+      },
+      "sourceVerification": {
+        "status": "verified",
+        "method": "GitHub official API + official README review"
+      }
+    },
+    {
+      "id": "t3code",
+      "type": "project",
+      "title": "T3 Code",
+      "repo": "pingdotgg/t3code",
+      "url": "https://github.com/pingdotgg/t3code",
+      "description": "把 Codex、Claude Code 等编程智能体集中在一个桌面和远程界面中。",
+      "why": "适合已经在用 Codex 或 Claude Code 的学生统一管理任务，并在手机上查看或批准下一步操作。",
+      "language": "TypeScript",
+      "topicIds": [
+        "ai-tools",
+        "micro-product"
+      ],
+      "author": "T3 Tools",
+      "readMinutes": 7,
+      "signal": 93,
+      "tags": [
+        "Agents",
+        "Remote",
+        "Desktop"
+      ],
+      "featured": false,
+      "metrics": {
+        "stars": 57724,
+        "createdAt": "2026-02-08T23:46:22Z",
+        "pushedAt": "2026-11-12T12:06:21Z",
+        "archived": false,
+        "license": "MIT"
+      },
+      "sourceVerification": {
+        "status": "verified",
+        "method": "GitHub official API + official README review"
+      }
+    },
+    {
+      "id": "openchatcut",
+      "type": "project",
+      "title": "OpenChatCut",
+      "repo": "0xsline/OpenChatCut",
+      "url": "https://github.com/0xsline/OpenChatCut",
+      "description": "本地优先的开源对话式视频编辑器，提供多轨时间线、字幕、Agent 与 Remotion 导出。",
+      "why": "做自媒体和课程视频时，可以用自然语言完成粗剪、字幕和版式，同时保留可继续编辑的时间线。",
+      "language": "TypeScript",
+      "topicIds": [
+        "content",
+        "presentation",
+        "ai-tools"
+      ],
+      "author": "OpenChatCut",
+      "readMinutes": 10,
+      "signal": 92,
+      "tags": [
+        "Video",
+        "Local-first",
+        "Agent"
+      ],
+      "featured": false,
+      "metrics": {
+        "stars": 3082,
+        "createdAt": "2026-07-15T02:49:42Z",
+        "pushedAt": "2026-11-12T12:08:42Z",
+        "archived": false,
+        "license": "AGPL-3.0"
+      },
+      "sourceVerification": {
+        "status": "verified",
+        "method": "GitHub official API + official README review"
+      }
+    },
+    {
+      "id": "nod",
+      "type": "project",
+      "title": "Nod",
+      "repo": "n8n-io/nod",
+      "url": "https://github.com/n8n-io/nod",
+      "description": "n8n 团队开源的本地个人 Agent，可在真实网站上执行任务并在操作前请求确认。",
+      "why": "能直观看到个人 Agent 如何从对话走向真实网页操作，也能学习权限、确认和隐私边界怎样设计。",
+      "language": "TypeScript",
+      "topicIds": [
+        "ai-tools",
+        "micro-product"
+      ],
+      "author": "n8n",
+      "readMinutes": 8,
+      "signal": 89,
+      "tags": [
+        "Agent",
+        "Browser",
+        "Privacy"
+      ],
+      "featured": false,
+      "metrics": {
+        "stars": 660,
+        "createdAt": "2026-09-25T13:46:42Z",
+        "pushedAt": "2026-11-12T12:06:56Z",
+        "archived": false,
+        "license": "Apache-2.0"
+      },
+      "sourceVerification": {
+        "status": "verified",
+        "method": "GitHub official API + official README review"
+      }
+    },
+    {
+      "id": "musescore",
+      "type": "project",
+      "title": "MuseScore",
+      "repo": "musescore/MuseScore",
+      "url": "https://github.com/musescore/MuseScore",
+      "description": "免费开源的乐谱编辑和播放工具，支持 MIDI 输入、导出和在线协作。",
+      "why": "音乐制作爱好者写谱、记谱和练习视唱时，MuseScore 是零成本的完整乐谱工具，比纸谱高效得多。",
+      "language": "C++",
+      "topicIds": [
+        "music"
+      ],
+      "author": "MuseScore",
+      "readMinutes": 6,
+      "signal": 82,
+      "tags": [
+        "Music",
+        "Notation",
+        "OpenSource"
+      ],
+      "featured": false,
+      "metrics": {
+        "stars": 15452,
+        "createdAt": "2012-05-26T12:46:33Z",
+        "pushedAt": "2026-11-19T14:56:41Z",
+        "archived": false,
+        "license": "GPL-3.0"
+      },
+      "sourceVerification": {
+        "status": "verified",
+        "method": "GitHub official API + official README review"
+      }
+    },
+    {
+      "id": "whisper",
+      "type": "project",
+      "title": "OpenAI Whisper",
+      "repo": "openai/whisper",
+      "url": "https://github.com/openai/whisper",
+      "description": "OpenAI 开源的多语言语音识别模型，支持字幕生成、翻译和说话人分离。",
+      "why": "做自媒体内容时，自动把视频或播客转成文字稿是最省时的环节；Whisper 准确率在开源方案中领先。",
+      "language": "Python",
+      "topicIds": [
+        "content",
+        "ai-tools"
+      ],
+      "author": "OpenAI",
+      "readMinutes": 8,
+      "signal": 95,
+      "tags": [
+        "ASR",
+        "Subtitles",
+        "ML"
+      ],
+      "featured": false,
+      "metrics": {
+        "stars": 113099,
+        "createdAt": "2022-09-16T20:02:54Z",
+        "pushedAt": "2026-08-31T17:19:19Z",
+        "archived": false,
+        "license": "MIT"
+      },
+      "sourceVerification": {
+        "status": "verified",
+        "method": "GitHub official API + official README review"
+      }
+    },
+    {
+      "id": "lossless-cut",
+      "type": "project",
+      "title": "LosslessCut",
+      "repo": "mifi/lossless-cut",
+      "url": "https://github.com/mifi/lossless-cut",
+      "description": "按时间点无损切割视频和音频，不重新编码，适合快速整理录屏、课程视频和自媒体素材。",
+      "why": "剪课程录屏或自媒体素材时，LosslessCut 直接按关键帧切割、不重新编码，速度快且几乎不损失画质。",
+      "language": "JavaScript",
+      "topicIds": [
+        "content"
+      ],
+      "author": "mifi",
+      "readMinutes": 5,
+      "signal": 84,
+      "tags": [
+        "Video",
+        "Cutting",
+        "Content"
+      ],
+      "featured": false,
+      "metrics": {
+        "stars": 46199,
+        "createdAt": "2016-10-30T10:49:56Z",
+        "pushedAt": "2026-11-14T02:45:16Z",
+        "archived": false,
+        "license": "GPL-2.0"
+      },
+      "sourceVerification": {
+        "status": "verified",
+        "method": "GitHub official API + official README review"
+      }
+    },
+    {
+      "id": "reveal-js",
+      "type": "project",
+      "title": "reveal.js",
+      "repo": "hakimel/reveal.js",
+      "url": "https://github.com/hakimel/reveal.js",
+      "description": "用 HTML 和 Markdown 制作可交互的网页幻灯片，支持代码高亮、动画和 PDF 导出。",
+      "why": "做课程汇报、社团路演或技术分享时，用 Markdown 写一次就能生成可交互的网页幻灯片，比反复调 PPT 版式省时间。",
+      "language": "JavaScript",
+      "topicIds": [
+        "presentation"
+      ],
+      "author": "Hakim El Hattab",
+      "readMinutes": 6,
+      "signal": 86,
+      "tags": [
+        "Slides",
+        "HTML",
+        "Presentation"
+      ],
+      "featured": false,
+      "metrics": {
+        "stars": 72604,
+        "createdAt": "2011-06-07T18:54:22Z",
+        "pushedAt": "2026-09-30T19:38:13Z",
+        "archived": false,
+        "license": "MIT"
+      },
+      "sourceVerification": {
+        "status": "verified",
+        "method": "GitHub official API + official README review"
+      }
+    },
+    {
+      "id": "typst",
+      "type": "project",
+      "title": "Typst",
+      "repo": "typst/typst",
+      "url": "https://github.com/typst/typst",
+      "description": "现代排版系统，用简洁语法生成论文、报告和幻灯片 PDF，编译速度快。",
+      "why": "写课程论文、实验报告或竞赛文档时，Typst 用简洁语法生成排版稳定的 PDF，编译比 LaTeX 快，适合本科生上手。",
+      "language": "Rust",
+      "topicIds": [
+        "research",
+        "presentation"
+      ],
+      "author": "Typst",
+      "readMinutes": 7,
+      "signal": 89,
+      "tags": [
+        "Typesetting",
+        "PDF",
+        "Research"
+      ],
+      "featured": false,
+      "metrics": {
+        "stars": 57292,
+        "createdAt": "2019-09-24T21:41:56Z",
+        "pushedAt": "2026-11-19T10:20:21Z",
+        "archived": false,
+        "license": "Apache-2.0"
+      },
+      "sourceVerification": {
+        "status": "verified",
+        "method": "GitHub official API + official README review"
+      }
+    },
+    {
+      "id": "audacity",
+      "type": "project",
+      "title": "Audacity",
+      "repo": "audacity/audacity",
+      "url": "https://github.com/audacity/audacity",
+      "description": "多轨音频编辑软件，支持录音、降噪、剪切、混音和常用音频格式导出。",
+      "why": "做播客、配乐或采访录音时，Audacity 能完成降噪、剪切和多轨混音，是零成本建立音频工作流的起点。",
+      "language": "C++",
+      "topicIds": [
+        "music"
+      ],
+      "author": "Audacity",
+      "readMinutes": 6,
+      "signal": 80,
+      "tags": [
+        "Audio",
+        "Editing",
+        "Music"
+      ],
+      "featured": false,
+      "metrics": {
+        "stars": 19108,
+        "createdAt": "2015-03-26T10:46:17Z",
+        "pushedAt": "2026-11-19T13:25:55Z",
+        "archived": false,
+        "license": "GPL-2.0"
+      },
+      "sourceVerification": {
+        "status": "verified",
+        "method": "GitHub official API + official LICENSE review"
+      }
+    }
+  ],
+  "authors": [
+    {
+      "id": "antfu",
+      "name": "Anthony Fu",
+      "handle": "@antfu",
+      "url": "https://github.com/antfu",
+      "topicIds": [
+        "presentation",
+        "micro-product"
+      ],
+      "reason": "Slidev、Vitest 和 Vue 生态维护者，擅长把开发者工具做得优雅又实用。",
+      "initials": "AF",
+      "color": "#d97745"
+    },
+    {
+      "id": "simonw",
+      "name": "Simon Willison",
+      "handle": "@simonw",
+      "url": "https://github.com/simonw",
+      "topicIds": [
+        "ai-tools",
+        "micro-product"
+      ],
+      "reason": "擅长把大模型能力变成可检查、可组合的小工具，文章和项目都很适合大学生模仿。",
+      "initials": "SW",
+      "color": "#6c5ce7"
+    },
+    {
+      "id": "shadcn",
+      "name": "shadcn",
+      "handle": "@shadcn",
+      "url": "https://github.com/shadcn",
+      "topicIds": [
+        "micro-product"
+      ],
+      "reason": "组件设计与开发者体验结合得很紧，适合学习如何把界面工程做得专业。",
+      "initials": "SC",
+      "color": "#00b894"
+    },
+    {
+      "id": "lmms-team",
+      "name": "LMMS Team",
+      "handle": "@LMMS",
+      "url": "https://github.com/LMMS",
+      "topicIds": [
+        "music"
+      ],
+      "reason": "维护免费开源 DAW，适合学生阶段低成本进入音乐制作。",
+      "initials": "LM",
+      "color": "#0984e3"
+    },
+    {
+      "id": "langchain",
+      "name": "LangChain",
+      "handle": "@langchain-ai",
+      "url": "https://github.com/langchain-ai",
+      "topicIds": [
+        "ai-tools",
+        "research"
+      ],
+      "reason": "Agent 和工作流设计的领先探索者，关注它能跟上 AI 应用化的最新思路。",
+      "initials": "LC",
+      "color": "#6c5ce7"
+    },
+    {
+      "id": "logseq-team",
+      "name": "Logseq",
+      "handle": "@logseq",
+      "url": "https://github.com/logseq",
+      "topicIds": [
+        "research",
+        "content"
+      ],
+      "reason": "本地优先知识管理的代表团队，适合学习如何把隐私、可迁移性和社区协作结合起来。",
+      "initials": "LS",
+      "color": "#8b6d9c"
+    },
+    {
+      "id": "appwrite-team",
+      "name": "Appwrite",
+      "handle": "@appwrite",
+      "url": "https://github.com/appwrite",
+      "topicIds": [
+        "micro-product"
+      ],
+      "reason": "把认证、数据库、存储和函数做成完整开源后端，适合观察产品化基础设施如何组织。",
+      "initials": "AW",
+      "color": "#00b894"
+    },
+    {
+      "id": "t3-tools",
+      "name": "T3 Tools",
+      "handle": "@pingdotgg",
+      "url": "https://github.com/pingdotgg",
+      "topicIds": [
+        "ai-tools",
+        "micro-product"
+      ],
+      "reason": "持续探索多智能体桌面与远程协作，适合关注 AI 编程产品的最新交互方式。",
+      "initials": "T3",
+      "color": "#6c5ce7"
+    }
+  ],
+  "readingPlan": {
+    "minutes": 15,
+    "steps": [
+      {
+        "label": "先读一个权威基准",
+        "detail": "优先看高权威度项目，对照评分拆解确认它的社区认可、维护年限和许可证。"
+      },
+      {
+        "label": "再比较一个近期新秀",
+        "detail": "打开带“近期新秀”标识的项目，查看创建时间、最近更新和仍待验证的风险。"
+      },
+      {
+        "label": "按中文部署卡动手",
+        "detail": "只执行项目预览里的中文步骤，在独立目录和测试数据中完成第一次运行。"
+      }
+    ]
+  }
+}

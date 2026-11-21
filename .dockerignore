@@ -1,0 +1,14 @@
+.git
+.gitignore
+.editorconfig
+outputs
+**/__pycache__
+*.py[cod]
+data/.github-token.json
+data/*.local.json
+.env
+.env.*
+*.log
+verify-profile*
+chrome-profile*
+edge-profile*

@@ -1,0 +1,50 @@
+项目：project-007-github-radar-github-only-release
+任务：把纯 GitHub 版定稿到 v21，重构为可上传 GitHub 的干净仓库
+日期：2026-11-21
+
+### 记录 1：顶层 const 解构与另一脚本的同名函数冲突
+- 现象：拆分 util.js 后，app.js 用 `const { readJSON, ... } = window.RadarUtil`，
+  页面完全不渲染，feed 卡片为 0。
+- 根因：onboard.js 在同一 classic-script 全局作用域里已经用 `function readJSON`
+  声明过同名标识符；顶层 `const` 与之冲突，整份 app.js 抛
+  `SyntaxError: Identifier 'readJSON' has already been declared`，后续所有初始化都不执行。
+- 处置：改回函数声明包装（`function readJSON(...) { return window.RadarUtil.readJSON(...) }`），
+  既保留复用能力，又允许多脚本共享同一个名字。
+- 验证：无头 Chrome 9/9 通过，卡片正常渲染，控制台 0 错误。
+- 是否可提炼为通用经验：是（多脚本共享全局作用域时，优先用函数声明或命名空间，避免顶层 const 撞名）。
+
+### 记录 2：静态服务器直接暴露后端源码
+- 现象：旧版把 `server_*.py` 和 `app/` 放在同一目录，`SimpleHTTPRequestHandler`
+  会把 `.py` 源码也当成静态文件提供。
+- 处置：新结构把后端移到 `server/` 包；handler 只从 `app/` 读文件，
+  并按 `STATIC_SUFFIXES` 白名单放行，目录穿越与非白名单后缀统一 404。
+- 验证：`/server/config.py` 与 `/../server/config.py` 均返回 404。
+- 是否可提炼为通用经验：是（静态目录与源码目录必须物理分离，并做后缀白名单 + 目录穿越防护）。
+
+### 记录 3：README 详情请求缺少超时
+- 现象：打开实时项目详情时，如果 GitHub 卡住，弹窗会一直停在“正在读取”。
+- 处置：给 `/api/live-repo` 请求加 20 秒 AbortController，超时后显示可重试提示。
+- 验证：语法检查与 UI 回归通过。
+- 是否可提炼为通用经验：否（属于当前页面的请求超时设计）。
+
+### 记录 4：版本文件与浏览器缓存目录长期堆积
+- 现象：project-002a 的 outputs/ 中积累 11 个浏览器 profile，合计约 131MB；
+  另有 __pycache__ 与 0 字节探测文件。
+- 处置：新发布项目只保留 v21 定稿代码；旧项目仅清理浏览器 profile / 缓存等
+  纯临时产物，历史版本代码暂留作对照。
+- 验证：清理前后对旧项目数据文件无改动。
+- 是否可提炼为通用经验：是（自动化验收的浏览器 profile 应写入 outputs/ 并加入 .gitignore）。
+
+### 记录 5：文件名规范冲突
+- 现象：旧项目大量使用中文文档名与 `_N` 版本后缀，与全局“kebab-case”规范不一致。
+- 处置：新项目代码与文档统一英文 kebab-case；中文只出现在文档内容里。
+- 验证：目录扫描无中文文件名。
+- 是否可提炼为通用经验：否（属于本项目的命名整理）。
+
+### 记录 6：UI 验收复用浏览器状态导致“假失败”
+- 现象：同一份 verify-ui.js 连续运行时，卡片数量从 5 变为 0，但页面模块与数据接口都正常。
+- 根因：无头 Chrome 复用同一个 user-data-dir，localStorage 里的推荐历史把 24 条存档
+  全部标记为“已推荐”，推荐队列因此为空。
+- 处置：验收脚本每次使用独立 profile 目录，并在写入测试问卷前先 `localStorage.clear()`。
+- 验证：连续两次 UI 回归均为 9/9 通过。
+- 是否可提炼为通用经验：是（自动化 UI 验收必须隔离浏览器 profile 与本地存储，避免跨轮状态污染）。

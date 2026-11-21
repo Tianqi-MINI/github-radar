@@ -1,0 +1,1304 @@
+{
+  "version": 1,
+  "generatedAt": "2026-11-12T12:18:27.577129Z",
+  "authorityModel": {
+    "stars": "社区认可，最高 30 分",
+    "maturity": "项目年限，最高 15 分",
+    "maintenance": "最近更新时间，最高 20 分",
+    "license": "开源许可证，最高 20 分",
+    "documentation": "部署文档完整度，最高 10 分",
+    "security": "公开来源与安全初筛，最高 5 分"
+  },
+  "safetyPolicy": {
+    "included": "OSI 认可许可证或已人工核对的明确开源许可证；公开、非 fork、未归档；有官方安装说明。",
+    "excluded": {
+      "cursor-directory": "GitHub 官方接口返回 404，无法确认当前仓库来源。",
+      "capcut-export": "GitHub 官方接口返回 404，无法确认当前仓库来源。",
+      "obsidian": "releases 仓库不包含 Obsidian 源码，不能证明客户端开源。",
+      "pocketbase": "旧仓库已归档并提示仓库迁移，不再作为当前推荐。",
+      "n8n": "许可证被 GitHub 标记为 NOASSERTION，不能按严格开源标准确认。",
+      "remotion": "许可证被 GitHub 标记为 NOASSERTION，未通过严格开源初筛。"
+    },
+    "limits": "安全初筛只检查公开来源、许可证、归档状态、维护活跃度和安装文档，不能保证代码没有漏洞或供应链风险。"
+  },
+  "projects": {
+    "prompt-papers": {
+      "stars": 80006,
+      "createdAt": "2022-12-16T16:04:50Z",
+      "pushedAt": "2026-03-11T20:09:13Z",
+      "license": "MIT",
+      "licenseClass": "osi",
+      "licenseNote": "代码和指南内容可按 MIT 许可证使用，引用时保留版权与许可声明。",
+      "officialOrg": true,
+      "documentationQuality": 9,
+      "readmeSummary": "这是一份持续维护的提示工程学习指南。README 先解释提示设计的基本概念，再按技术、应用、风险、论文和工具分类，适合建立完整知识地图。",
+      "quickest": "只想学习时直接打开官方在线指南；想在电脑上修改或离线阅读，再运行本地开发环境。",
+      "requirements": [
+        "Node.js 18 或更新版本",
+        "pnpm",
+        "Git"
+      ],
+      "steps": [
+        {
+          "title": "取得项目",
+          "detail": "克隆官方仓库。",
+          "command": "git clone https://github.com/dair-ai/Prompt-Engineering-Guide.git\ncd Prompt-Engineering-Guide"
+        },
+        {
+          "title": "安装依赖",
+          "detail": "README 指定的依赖集合。",
+          "command": "pnpm i next react react-dom nextra nextra-theme-docs"
+        },
+        {
+          "title": "启动本地指南",
+          "detail": "开发服务器启动后，用浏览器访问本机地址。",
+          "command": "pnpm dev"
+        }
+      ],
+      "launch": {
+        "label": "本地指南",
+        "url": "http://localhost:3000/",
+        "note": "官方 README 给出的本地访问地址。"
+      },
+      "cautions": [
+        "README 中的赞助商链接和课程推广不属于安装步骤，可跳过。",
+        "不要执行来源不明的全局安装脚本。"
+      ],
+      "docsUrl": "https://www.promptingguide.ai/",
+      "security": {
+        "status": "passed",
+        "label": "开源安全初筛通过",
+        "reasons": [
+          "许可证：MIT",
+          "公开仓库、非 fork、当前未归档",
+          "安装步骤来自项目官方 README 或官方文档",
+          "仅链接 GitHub 官方仓库与项目官方文档"
+        ],
+        "limitations": "初筛只核对公开来源、许可证、维护状态和安装文档，不等同于完整代码安全审计。"
+      }
+    },
+    "slidev": {
+      "stars": 49446,
+      "createdAt": "2021-04-24T01:25:23Z",
+      "pushedAt": "2026-11-05T06:29:21Z",
+      "license": "MIT",
+      "licenseClass": "osi",
+      "licenseNote": "MIT 允许修改和再发布，保留许可证文本即可。",
+      "officialOrg": true,
+      "documentationQuality": 10,
+      "readmeSummary": "Slidev 用 Markdown 写演示文稿，再通过 Vite 提供网页预览和导出。README 的重点不是克隆主仓库，而是用脚手架新建自己的幻灯片项目。",
+      "quickest": "在空文件夹里运行 `npm init slidev`，按向导生成项目后启动开发服务器。",
+      "requirements": [
+        "Node.js 22.12 或更新版本",
+        "npm"
+      ],
+      "steps": [
+        {
+          "title": "新建项目",
+          "detail": "在准备放幻灯片的空目录运行。",
+          "command": "npm init slidev"
+        },
+        {
+          "title": "安装依赖",
+          "detail": "进入脚手架创建的目录。",
+          "command": "cd slides\nnpm install"
+        },
+        {
+          "title": "开始写作",
+          "detail": "启动本地预览，然后编辑 slides.md。",
+          "command": "npm run dev"
+        }
+      ],
+      "launch": {
+        "label": "幻灯片预览",
+        "url": "http://localhost:3030/",
+        "note": "Slidev 开发服务器通常使用 3030 端口，以终端实际输出为准。"
+      },
+      "cautions": [
+        "国内网络下 npm 依赖可能较慢，请使用可信企业镜像并核对依赖来源。",
+        "演示文稿内容默认保存在当前项目目录，注意不要误提交私人材料。"
+      ],
+      "docsUrl": "https://cn.sli.dev/",
+      "security": {
+        "status": "passed",
+        "label": "开源安全初筛通过",
+        "reasons": [
+          "许可证：MIT",
+          "公开仓库、非 fork、当前未归档",
+          "安装步骤来自项目官方 README 或官方文档",
+          "仅链接 GitHub 官方仓库与项目官方文档"
+        ],
+        "limitations": "初筛只核对公开来源、许可证、维护状态和安装文档，不等同于完整代码安全审计。"
+      }
+    },
+    "marp": {
+      "stars": 12741,
+      "createdAt": "2018-03-25T12:47:38Z",
+      "pushedAt": "2026-11-07T09:29:51Z",
+      "license": "MIT",
+      "licenseClass": "osi",
+      "licenseNote": "MIT 许可证，允许课堂、社团和商业场景使用。",
+      "officialOrg": true,
+      "documentationQuality": 9,
+      "readmeSummary": "Marp 把 Markdown 转成幻灯片。对学生最省事的路径是安装 VS Code 插件，命令行版本适合批量导出 PDF 或 PPTX。",
+      "quickest": "在 VS Code 安装 Marp 插件，打开 Markdown 文件即可预览和导出。",
+      "requirements": [
+        "VS Code，或 Node.js 18+",
+        "Marp for VS Code 插件或 Marp CLI"
+      ],
+      "steps": [
+        {
+          "title": "选择使用方式",
+          "detail": "单人写课堂汇报优先使用 VS Code 插件；批量生成选择 CLI。"
+        },
+        {
+          "title": "命令行导出示例",
+          "detail": "使用官方 CLI 把 Markdown 导出为 PDF。",
+          "command": "npx @marp-team/marp-cli@latest slides.md --pdf"
+        },
+        {
+          "title": "打开结果",
+          "detail": "导出文件会出现在命令执行目录，使用系统 PDF 阅读器打开。"
+        }
+      ],
+      "launch": {
+        "label": "Marp 官方文档",
+        "url": "https://marp.app/",
+        "note": "插件安装和语法说明以官方文档为准。"
+      },
+      "cautions": [
+        "导出 PPTX 的版式能力弱于 PDF，正式答辩前要逐页检查字体与换行。",
+        "不要从非官方扩展市场安装同名插件。"
+      ],
+      "docsUrl": "https://marp.app/",
+      "security": {
+        "status": "passed",
+        "label": "开源安全初筛通过",
+        "reasons": [
+          "许可证：MIT",
+          "公开仓库、非 fork、当前未归档",
+          "安装步骤来自项目官方 README 或官方文档",
+          "仅链接 GitHub 官方仓库与项目官方文档"
+        ],
+        "limitations": "初筛只核对公开来源、许可证、维护状态和安装文档，不等同于完整代码安全审计。"
+      }
+    },
+    "pptxgenjs": {
+      "stars": 6376,
+      "createdAt": "2016-02-23T02:15:29Z",
+      "pushedAt": "2025-11-28T20:17:14Z",
+      "license": "MIT",
+      "licenseClass": "osi",
+      "licenseNote": "MIT 许可证。",
+      "officialOrg": false,
+      "documentationQuality": 9,
+      "readmeSummary": "PptxGenJS 是一个 JavaScript 库，不是单独的桌面应用。README 的重点是把它安装进现有 Node 项目，再用代码生成真正的 .pptx 文件。",
+      "quickest": "在已有 Node 项目里执行 `npm install pptxgenjs`，运行示例脚本生成文件。",
+      "requirements": [
+        "Node.js",
+        "npm",
+        "一个 JavaScript 项目",
+        "PowerPoint 或 WPS"
+      ],
+      "steps": [
+        {
+          "title": "安装库",
+          "detail": "不要克隆整个仓库，普通使用只需要安装 npm 包。",
+          "command": "npm install pptxgenjs"
+        },
+        {
+          "title": "编写生成脚本",
+          "detail": "按 README 示例创建演示文稿、添加文本或图表，然后写入 .pptx 文件。"
+        },
+        {
+          "title": "打开结果",
+          "detail": "运行脚本后，用 PowerPoint 或 WPS 打开生成的 pptx 文件。"
+        }
+      ],
+      "launch": {
+        "label": "官方 README",
+        "url": "https://github.com/gitbrent/PptxGenJS#readme",
+        "note": "这是一个代码库，没有固定网页启动地址。"
+      },
+      "cautions": [
+        "自动生成的 PPT 仍需人工检查字体、图片版权和排版。",
+        "浏览器端直接引入 CDN 时，应确认脚本版本和完整性。"
+      ],
+      "docsUrl": "https://gitbrent.github.io/PptxGenJS/",
+      "security": {
+        "status": "passed",
+        "label": "开源安全初筛通过",
+        "reasons": [
+          "许可证：MIT",
+          "公开仓库、非 fork、当前未归档",
+          "安装步骤来自项目官方 README 或官方文档",
+          "仅链接 GitHub 官方仓库与项目官方文档"
+        ],
+        "limitations": "初筛只核对公开来源、许可证、维护状态和安装文档，不等同于完整代码安全审计。"
+      }
+    },
+    "zotero": {
+      "stars": 15927,
+      "createdAt": "2011-10-27T07:46:48Z",
+      "pushedAt": "2026-11-11T21:53:11Z",
+      "license": "AGPL-3.0",
+      "licenseClass": "osi",
+      "licenseNote": "AGPL-3.0。若修改后作为网络服务提供，需要按许可证公开相应源代码。",
+      "officialOrg": true,
+      "documentationQuality": 9,
+      "readmeSummary": "Zotero 的 GitHub 仓库主要面向开发者和贡献者。普通学生使用文献管理功能时，应下载官方安装包，而不是从源码编译。",
+      "quickest": "从 Zotero 官网下载 Windows 安装包，安装后加浏览器连接器和常用插件。",
+      "requirements": [
+        "Windows/macOS/Linux",
+        "Zotero 官方安装包",
+        "浏览器连接器"
+      ],
+      "steps": [
+        {
+          "title": "安装桌面端",
+          "detail": "从官网下载对应系统安装包并完成安装。"
+        },
+        {
+          "title": "安装浏览器连接器",
+          "detail": "用于把网页上的论文信息一键保存到 Zotero。"
+        },
+        {
+          "title": "建立文献库",
+          "detail": "新建分类，导入 PDF，安装需要的中文引用样式。"
+        }
+      ],
+      "launch": {
+        "label": "Zotero 官方下载",
+        "url": "https://www.zotero.org/download/",
+        "note": "官网是普通用户最安全的安装入口。"
+      },
+      "cautions": [
+        "插件只从官方插件目录或作者仓库安装。",
+        "不要把未公开实验数据同步到公共账号。"
+      ],
+      "docsUrl": "https://www.zotero.org/support/",
+      "security": {
+        "status": "passed",
+        "label": "开源安全初筛通过",
+        "reasons": [
+          "许可证：AGPL-3.0",
+          "公开仓库、非 fork、当前未归档",
+          "安装步骤来自项目官方 README 或官方文档",
+          "仅链接 GitHub 官方仓库与项目官方文档"
+        ],
+        "limitations": "初筛只核对公开来源、许可证、维护状态和安装文档，不等同于完整代码安全审计。"
+      }
+    },
+    "langgraph": {
+      "stars": 44846,
+      "createdAt": "2023-08-09T18:33:12Z",
+      "pushedAt": "2026-11-12T01:43:56Z",
+      "license": "MIT",
+      "licenseClass": "osi",
+      "licenseNote": "MIT 许可证。",
+      "officialOrg": true,
+      "documentationQuality": 9,
+      "readmeSummary": "LangGraph 是 Python 智能体工作流框架，通常作为代码库嵌入自己的项目，没有统一的桌面入口。README 先展示状态图、节点和持久化概念。",
+      "quickest": "创建独立 Python 虚拟环境，安装包后运行最小示例。",
+      "requirements": [
+        "Python 3.10 或更新版本",
+        "pip",
+        "模型 API（仅在需要时配置）"
+      ],
+      "steps": [
+        {
+          "title": "创建虚拟环境",
+          "detail": "避免污染系统 Python。",
+          "command": "py -3 -m venv .venv\n.venv\\Scripts\\activate"
+        },
+        {
+          "title": "安装框架",
+          "detail": "先跑通无密钥的基础示例。",
+          "command": "pip install langgraph"
+        },
+        {
+          "title": "运行示例",
+          "detail": "新建 Python 文件，按官方文档构建一个最小状态图。"
+        }
+      ],
+      "launch": {
+        "label": "官方教程",
+        "url": "https://langchain-ai.github.io/langgraph/",
+        "note": "通常通过 Python 脚本或 Notebook 运行。"
+      },
+      "cautions": [
+        "不要把 API Key 写进代码或提交到 Git。",
+        "涉及自动调用工具时，先在无敏感数据的测试目录运行。"
+      ],
+      "docsUrl": "https://langchain-ai.github.io/langgraph/",
+      "security": {
+        "status": "passed",
+        "label": "开源安全初筛通过",
+        "reasons": [
+          "许可证：MIT",
+          "公开仓库、非 fork、当前未归档",
+          "安装步骤来自项目官方 README 或官方文档",
+          "仅链接 GitHub 官方仓库与项目官方文档"
+        ],
+        "limitations": "初筛只核对公开来源、许可证、维护状态和安装文档，不等同于完整代码安全审计。"
+      }
+    },
+    "audiocraft": {
+      "stars": 23854,
+      "createdAt": "2023-06-08T06:41:36Z",
+      "pushedAt": "2026-03-03T21:50:32Z",
+      "license": "MIT（代码）",
+      "licenseClass": "osi",
+      "licenseNote": "代码为 MIT；部分模型权重使用 CC-BY-NC 4.0，仅限非商业用途，发布作品前必须分别核对。",
+      "officialOrg": true,
+      "documentationQuality": 8,
+      "readmeSummary": "AudioCraft 包含 MusicGen 等音频生成模型的训练与推理代码。README 明确要求 Python 3.9、PyTorch 2.1 和 ffmpeg，完整本地运行对显卡与磁盘要求较高。",
+      "quickest": "先使用官方示例或在线演示验证需求；确认要本地运行后再安装 PyTorch 环境。",
+      "requirements": [
+        "Python 3.9",
+        "PyTorch 2.1",
+        "ffmpeg",
+        "建议独立虚拟环境",
+        "足够的显存和磁盘空间"
+      ],
+      "steps": [
+        {
+          "title": "准备环境",
+          "detail": "创建项目级虚拟环境并安装构建工具。",
+          "command": "py -3.9 -m venv .venv\n.venv\\Scripts\\activate\npython -m pip install setuptools wheel"
+        },
+        {
+          "title": "安装 PyTorch",
+          "detail": "按 README 固定版本；显卡版本需按 PyTorch 官方安装选择器调整。"
+        },
+        {
+          "title": "安装 AudioCraft",
+          "detail": "稳定版可直接从 PyPI 安装。",
+          "command": "python -m pip install -U audiocraft"
+        },
+        {
+          "title": "运行示例",
+          "detail": "按 MusicGen 文档运行推理，输出音频后用播放器试听。"
+        }
+      ],
+      "launch": {
+        "label": "官方音频示例",
+        "url": "https://github.com/facebookresearch/audiocraft#musicgen",
+        "note": "以 Python 推理脚本为主，没有固定网页地址。"
+      },
+      "cautions": [
+        "模型权重和代码可能使用不同许可证，不能只看代码的 MIT。",
+        "生成音乐用于公开发布前要确认商用权限和素材版权。"
+      ],
+      "docsUrl": "https://facebookresearch.github.io/audiocraft/",
+      "security": {
+        "status": "passed",
+        "label": "开源安全初筛通过",
+        "reasons": [
+          "许可证：MIT（代码）",
+          "公开仓库、非 fork、当前未归档",
+          "安装步骤来自项目官方 README 或官方文档",
+          "仅链接 GitHub 官方仓库与项目官方文档"
+        ],
+        "limitations": "开源初筛通过代码许可证和公开来源检查；模型权重另有限制，使用前需核对权重许可证。"
+      }
+    },
+    "lmms": {
+      "stars": 10644,
+      "createdAt": "2014-01-09T20:43:43Z",
+      "pushedAt": "2026-11-10T22:04:55Z",
+      "license": "GPL-2.0",
+      "licenseClass": "osi",
+      "licenseNote": "GPL-2.0。分发修改版时需要遵守 GPL 的源代码开放要求。",
+      "officialOrg": true,
+      "documentationQuality": 8,
+      "readmeSummary": "LMMS 是完整的开源数字音频工作站。普通用户应从 Releases 下载系统安装包；从源码编译只适合开发或特殊平台需求。",
+      "quickest": "从 GitHub Releases 下载 Windows 安装包，安装后新建项目并选择音色。",
+      "requirements": [
+        "Windows 10/11",
+        "至少数 GB 磁盘空间",
+        "可选音频接口与 MIDI 键盘"
+      ],
+      "steps": [
+        {
+          "title": "下载安装包",
+          "detail": "在官方 Releases 选择 Windows x64 版本。"
+        },
+        {
+          "title": "安装并启动",
+          "detail": "完成安装后打开 LMMS，先播放内置 demo 检查音频输出。"
+        },
+        {
+          "title": "建立第一个工程",
+          "detail": "设置采样率、保存工程目录，再添加乐器轨道。"
+        }
+      ],
+      "launch": {
+        "label": "官方 Releases",
+        "url": "https://github.com/LMMS/lmms/releases",
+        "note": "优先使用官方构建产物。"
+      },
+      "cautions": [
+        "第三方工程文件可能引用未知插件。",
+        "首次使用先降低音量，避免音频接口爆音。"
+      ],
+      "docsUrl": "https://docs.lmms.io/",
+      "security": {
+        "status": "passed",
+        "label": "开源安全初筛通过",
+        "reasons": [
+          "许可证：GPL-2.0",
+          "公开仓库、非 fork、当前未归档",
+          "安装步骤来自项目官方 README 或官方文档",
+          "仅链接 GitHub 官方仓库与项目官方文档"
+        ],
+        "limitations": "初筛只核对公开来源、许可证、维护状态和安装文档，不等同于完整代码安全审计。"
+      }
+    },
+    "spleeter": {
+      "stars": 28526,
+      "createdAt": "2019-09-26T15:40:46Z",
+      "pushedAt": "2026-10-28T15:05:22Z",
+      "license": "MIT",
+      "licenseClass": "osi",
+      "licenseNote": "MIT 许可证。",
+      "officialOrg": true,
+      "documentationQuality": 8,
+      "readmeSummary": "Spleeter 用深度学习把歌曲分离成人声、鼓、贝斯等音轨。README 给出的最短路径是安装 ffmpeg 和 Python 包，再用命令行处理音频。",
+      "quickest": "在独立 Python 环境安装 ffmpeg、libsndfile 和 spleeter，处理一首本地测试音频。",
+      "requirements": [
+        "Python",
+        "ffmpeg",
+        "libsndfile",
+        "测试音频"
+      ],
+      "steps": [
+        {
+          "title": "安装系统依赖",
+          "detail": "Windows 可先通过可信包管理器安装 ffmpeg。"
+        },
+        {
+          "title": "安装 Spleeter",
+          "detail": "在虚拟环境执行。",
+          "command": "pip install spleeter"
+        },
+        {
+          "title": "分离音轨",
+          "detail": "先在短音频上测试，避免一次处理长文件。",
+          "command": "python -m spleeter separate -p spleeter:2stems -o output sample.mp3"
+        },
+        {
+          "title": "打开输出",
+          "detail": "在 output 目录找到 vocals.wav 和 accompaniment.wav。"
+        }
+      ],
+      "launch": {
+        "label": "使用说明",
+        "url": "https://github.com/deezer/spleeter/wiki/2.-Getting-started",
+        "note": "主要通过命令行运行。"
+      },
+      "cautions": [
+        "不要处理没有授权或涉及隐私的录音。",
+        "模型首次运行会下载权重，需预留网络和磁盘空间。"
+      ],
+      "docsUrl": "https://github.com/deezer/spleeter/wiki",
+      "security": {
+        "status": "passed",
+        "label": "开源安全初筛通过",
+        "reasons": [
+          "许可证：MIT",
+          "公开仓库、非 fork、当前未归档",
+          "安装步骤来自项目官方 README 或官方文档",
+          "仅链接 GitHub 官方仓库与项目官方文档"
+        ],
+        "limitations": "初筛只核对公开来源、许可证、维护状态和安装文档，不等同于完整代码安全审计。"
+      }
+    },
+    "shadcn-ui": {
+      "stars": 127979,
+      "createdAt": "2023-01-04T12:43:27Z",
+      "pushedAt": "2026-11-12T06:06:10Z",
+      "license": "MIT",
+      "licenseClass": "osi",
+      "licenseNote": "MIT 许可证。",
+      "officialOrg": true,
+      "documentationQuality": 9,
+      "readmeSummary": "shadcn/ui 不是一个独立 UI 网站，而是把可编辑组件源码加入你的 React/Next.js 项目。README 强调组件由你直接维护，而不是锁定在组件库中。",
+      "quickest": "在 React 或 Next.js 项目中运行官方初始化命令，再按需添加组件。",
+      "requirements": [
+        "Node.js",
+        "React 或 Next.js 项目",
+        "Tailwind CSS"
+      ],
+      "steps": [
+        {
+          "title": "进入已有前端项目",
+          "detail": "不要单独克隆主仓库作为业务项目。"
+        },
+        {
+          "title": "初始化",
+          "detail": "按官方文档运行初始化命令。",
+          "command": "npx shadcn@latest init"
+        },
+        {
+          "title": "添加组件",
+          "detail": "只添加实际需要的组件。",
+          "command": "npx shadcn@latest add button"
+        }
+      ],
+      "launch": {
+        "label": "官方文档",
+        "url": "https://ui.shadcn.com/docs",
+        "note": "组件在你的项目中运行，没有统一启动端口。"
+      },
+      "cautions": [
+        "添加组件前先备份自己的样式文件。",
+        "检查项目 Tailwind 版本，不同版本的初始化命令可能不同。"
+      ],
+      "docsUrl": "https://ui.shadcn.com/docs",
+      "security": {
+        "status": "passed",
+        "label": "开源安全初筛通过",
+        "reasons": [
+          "许可证：MIT",
+          "公开仓库、非 fork、当前未归档",
+          "安装步骤来自项目官方 README 或官方文档",
+          "仅链接 GitHub 官方仓库与项目官方文档"
+        ],
+        "limitations": "初筛只核对公开来源、许可证、维护状态和安装文档，不等同于完整代码安全审计。"
+      }
+    },
+    "nextjs": {
+      "stars": 143484,
+      "createdAt": "2016-10-05T23:32:51Z",
+      "pushedAt": "2026-11-12T12:04:10Z",
+      "license": "MIT",
+      "licenseClass": "osi",
+      "licenseNote": "MIT 许可证。",
+      "officialOrg": true,
+      "documentationQuality": 10,
+      "readmeSummary": "Next.js 是生产级 React 全栈框架。普通用户做项目时不应直接运行巨大的主仓库，而应使用官方脚手架创建自己的应用。",
+      "quickest": "用 `create-next-app` 新建项目，再运行开发服务器。",
+      "requirements": [
+        "Node.js 20 或更新版本",
+        "npm/pnpm/yarn",
+        "Git"
+      ],
+      "steps": [
+        {
+          "title": "新建应用",
+          "detail": "在主仓库之外创建独立项目目录。",
+          "command": "npx create-next-app@latest my-app\ncd my-app"
+        },
+        {
+          "title": "启动开发环境",
+          "detail": "先在无敏感数据的示例页练习。",
+          "command": "npm run dev"
+        },
+        {
+          "title": "修改首页",
+          "detail": "从 app/page.tsx 开始，逐步加入路由和数据。"
+        }
+      ],
+      "launch": {
+        "label": "本地开发服务器",
+        "url": "http://localhost:3000/",
+        "note": "以脚手架终端实际输出为准。"
+      },
+      "cautions": [
+        "不要直接克隆 Next.js 主仓库做业务项目，它包含大量框架开发和测试内容。",
+        "部署前检查环境变量和密钥。"
+      ],
+      "docsUrl": "https://nextjs.org/docs",
+      "security": {
+        "status": "passed",
+        "label": "开源安全初筛通过",
+        "reasons": [
+          "许可证：MIT",
+          "公开仓库、非 fork、当前未归档",
+          "安装步骤来自项目官方 README 或官方文档",
+          "仅链接 GitHub 官方仓库与项目官方文档"
+        ],
+        "limitations": "初筛只核对公开来源、许可证、维护状态和安装文档，不等同于完整代码安全审计。"
+      }
+    },
+    "supabase": {
+      "stars": 114916,
+      "createdAt": "2019-10-12T05:56:49Z",
+      "pushedAt": "2026-11-12T12:08:15Z",
+      "license": "Apache-2.0",
+      "licenseClass": "osi",
+      "licenseNote": "Apache-2.0。使用第三方托管服务仍受服务商条款约束。",
+      "officialOrg": true,
+      "documentationQuality": 10,
+      "readmeSummary": "Supabase 提供 PostgreSQL、认证、存储和实时数据能力。README 区分了云端体验和本地开发，学生做小产品通常先用云端免费层，或通过 CLI 在 Docker 中本地启动。",
+      "quickest": "本地开发安装 Supabase CLI 和 Docker Desktop，执行初始化与启动命令。",
+      "requirements": [
+        "Docker Desktop",
+        "Node.js/npm",
+        "Supabase CLI"
+      ],
+      "steps": [
+        {
+          "title": "初始化本地配置",
+          "detail": "在项目目录执行。",
+          "command": "npx supabase init"
+        },
+        {
+          "title": "启动本地服务",
+          "detail": "首次启动会下载多个容器，需预留时间和磁盘。",
+          "command": "npx supabase start"
+        },
+        {
+          "title": "打开本地控制台",
+          "detail": "命令完成后会输出 API URL、Studio URL 和数据库信息。"
+        }
+      ],
+      "launch": {
+        "label": "本地 Supabase Studio",
+        "url": "http://127.0.0.1:54323/",
+        "note": "以 `supabase start` 终端实际输出为准。"
+      },
+      "cautions": [
+        "不要提交 service role key。",
+        "本地数据库与云端项目相互独立，迁移前先备份。"
+      ],
+      "docsUrl": "https://supabase.com/docs/guides/local-development",
+      "security": {
+        "status": "passed",
+        "label": "开源安全初筛通过",
+        "reasons": [
+          "许可证：Apache-2.0",
+          "公开仓库、非 fork、当前未归档",
+          "安装步骤来自项目官方 README 或官方文档",
+          "仅链接 GitHub 官方仓库与项目官方文档"
+        ],
+        "limitations": "初筛只核对公开来源、许可证、维护状态和安装文档，不等同于完整代码安全审计。"
+      }
+    },
+    "logseq": {
+      "stars": 45561,
+      "createdAt": "2020-05-23T00:06:06Z",
+      "pushedAt": "2026-11-12T06:32:20Z",
+      "license": "AGPL-3.0",
+      "licenseClass": "osi",
+      "licenseNote": "AGPL-3.0。修改后提供网络服务时需遵守源代码开放要求。",
+      "officialOrg": true,
+      "documentationQuality": 8,
+      "readmeSummary": "Logseq 是本地优先的开源知识管理工具，适合整理课程笔记、科研灵感和内容选题。普通用户直接安装桌面版即可，不需要编译源码。",
+      "quickest": "从官方 Releases 下载桌面安装包，新建本地知识库。",
+      "requirements": [
+        "Windows/macOS/Linux",
+        "至少一个用于知识库的本地目录"
+      ],
+      "steps": [
+        {
+          "title": "下载桌面端",
+          "detail": "在官方 Releases 选择系统安装包。"
+        },
+        {
+          "title": "新建知识库",
+          "detail": "选择一个独立目录，不要直接选整个文档目录。"
+        },
+        {
+          "title": "开始记录",
+          "detail": "先用 Journal 记录，再逐步添加标签和页面链接。"
+        }
+      ],
+      "launch": {
+        "label": "官方下载",
+        "url": "https://github.com/logseq/logseq/releases",
+        "note": "README 指向 GitHub Releases。"
+      },
+      "cautions": [
+        "知识库涉及科研资料时不要同步到不受控的公开空间。",
+        "第三方插件可能访问本地笔记，安装前阅读权限说明。"
+      ],
+      "docsUrl": "https://docs.logseq.com/",
+      "security": {
+        "status": "passed",
+        "label": "开源安全初筛通过",
+        "reasons": [
+          "许可证：AGPL-3.0",
+          "公开仓库、非 fork、当前未归档",
+          "安装步骤来自项目官方 README 或官方文档",
+          "仅链接 GitHub 官方仓库与项目官方文档"
+        ],
+        "limitations": "初筛只核对公开来源、许可证、维护状态和安装文档，不等同于完整代码安全审计。"
+      }
+    },
+    "appwrite": {
+      "stars": 58058,
+      "createdAt": "2019-04-08T16:36:25Z",
+      "pushedAt": "2026-11-12T12:10:01Z",
+      "license": "BSD-3-Clause",
+      "licenseClass": "osi",
+      "licenseNote": "BSD-3-Clause，允许修改与再发布，需保留版权声明。",
+      "officialOrg": true,
+      "documentationQuality": 10,
+      "readmeSummary": "Appwrite 是开源后端平台，包含认证、数据库、存储、函数和实时能力。README 提供云端快速开始，也给出 Docker 自托管的一键安装向导。",
+      "quickest": "安装 Docker Desktop 后运行官方安装容器，在 localhost 安装向导中完成配置。",
+      "requirements": [
+        "Docker Desktop",
+        "至少 4 GB 可用内存",
+        "一个空项目目录"
+      ],
+      "steps": [
+        {
+          "title": "安装 Docker Desktop",
+          "detail": "确认 Docker 引擎可以正常运行。"
+        },
+        {
+          "title": "启动官方安装向导",
+          "detail": "Windows 使用 README 中的 CMD/PowerShell 命令，并只把安装端口绑定到 127.0.0.1。"
+        },
+        {
+          "title": "完成网页向导",
+          "detail": "打开终端输出的本地地址，输入一次性安装密钥并创建管理员。"
+        }
+      ],
+      "launch": {
+        "label": "本地安装向导",
+        "url": "http://127.0.0.1:20080/",
+        "note": "安装容器运行期间有效；具体端口以终端输出为准。"
+      },
+      "cautions": [
+        "不要把 Docker socket 暴露给不可信程序。",
+        "自托管包含多个数据库服务，正式上线前要配置备份、HTTPS 和密钥管理。"
+      ],
+      "docsUrl": "https://appwrite.io/docs/advanced/self-hosting",
+      "security": {
+        "status": "passed",
+        "label": "开源安全初筛通过",
+        "reasons": [
+          "许可证：BSD-3-Clause",
+          "公开仓库、非 fork、当前未归档",
+          "安装步骤来自项目官方 README 或官方文档",
+          "仅链接 GitHub 官方仓库与项目官方文档"
+        ],
+        "limitations": "初筛只核对公开来源、许可证、维护状态和安装文档，不等同于完整代码安全审计。"
+      }
+    },
+    "future-agi": {
+      "stars": 2266,
+      "createdAt": "2026-04-23T14:11:31Z",
+      "pushedAt": "2026-11-12T12:09:01Z",
+      "license": "Apache-2.0",
+      "licenseClass": "osi",
+      "licenseNote": "Apache-2.0。",
+      "officialOrg": true,
+      "documentationQuality": 9,
+      "readmeSummary": "Future AGI 是面向 AI Agent 的评估、追踪、模拟和护栏平台。README 提供 Docker 自托管路径，适合已经做出 AI 应用、需要检查回答质量和运行链路的同学。",
+      "quickest": "安装 Docker Desktop，克隆官方仓库，运行项目自带的自托管安装脚本。",
+      "requirements": [
+        "Docker Desktop 或 Docker Engine",
+        "Docker Compose 2.24+",
+        "建议 2 vCPU / 4 GB 内存"
+      ],
+      "steps": [
+        {
+          "title": "取得项目",
+          "detail": "克隆官方仓库并进入目录。",
+          "command": "git clone https://github.com/future-agi/future-agi.git\ncd future-agi"
+        },
+        {
+          "title": "运行自托管安装",
+          "detail": "Windows PowerShell 使用官方脚本。",
+          "command": ".\\bin\\install.ps1"
+        },
+        {
+          "title": "打开管理界面",
+          "detail": "等待容器启动，按安装脚本输出的本地地址进入平台。"
+        }
+      ],
+      "launch": {
+        "label": "官方自托管文档",
+        "url": "https://docs.futureagi.com/docs/self-hosting",
+        "note": "README 说明可单机 Docker Compose 自托管，具体地址以安装脚本输出为准。"
+      },
+      "cautions": [
+        "项目较新，升级前先备份数据库和配置。",
+        "接入真实业务日志前，先移除个人身份信息和未公开数据。"
+      ],
+      "docsUrl": "https://docs.futureagi.com/",
+      "security": {
+        "status": "passed",
+        "label": "开源安全初筛通过",
+        "reasons": [
+          "许可证：Apache-2.0",
+          "公开仓库、非 fork、当前未归档",
+          "安装步骤来自项目官方 README 或官方文档",
+          "仅链接 GitHub 官方仓库与项目官方文档"
+        ],
+        "limitations": "项目创建时间较短，初筛只确认公开来源、许可证、维护活跃度和官方部署文档；生产使用前应做独立安全与稳定性评估。"
+      }
+    },
+    "t3code": {
+      "stars": 57724,
+      "createdAt": "2026-02-08T23:46:22Z",
+      "pushedAt": "2026-11-12T12:06:21Z",
+      "license": "MIT",
+      "licenseClass": "osi",
+      "licenseNote": "MIT 许可证。",
+      "officialOrg": true,
+      "documentationQuality": 9,
+      "readmeSummary": "T3 Code 把 Claude Code、Codex 等编程智能体集中到一个界面，并支持从手机继续查看和批准任务。README 提供桌面安装包、winget 和命令行三种入口。",
+      "quickest": "Windows 用户使用 winget 安装桌面版；也可以从官方下载页获取安装包。",
+      "requirements": [
+        "Windows/macOS/Linux",
+        "已安装并登录至少一个编程智能体",
+        "如使用远程访问，需要额外配置安全连接"
+      ],
+      "steps": [
+        {
+          "title": "安装桌面端",
+          "detail": "Windows 官方命令。",
+          "command": "winget install T3Tools.T3Code"
+        },
+        {
+          "title": "启动并连接智能体",
+          "detail": "打开 T3 Code，选择电脑上已经登录的 Codex 或 Claude Code。"
+        },
+        {
+          "title": "运行第一个任务",
+          "detail": "先在本机测试项目中使用，不要直接连接生产服务器。"
+        }
+      ],
+      "launch": {
+        "label": "官方下载页",
+        "url": "https://t3.codes/download",
+        "note": "桌面版安装后从开始菜单启动。"
+      },
+      "cautions": [
+        "远程控制编程智能体时不要公开暴露服务端口。",
+        "批准命令前检查目标目录和操作内容。"
+      ],
+      "docsUrl": "https://t3.codes/",
+      "security": {
+        "status": "passed",
+        "label": "开源安全初筛通过",
+        "reasons": [
+          "许可证：MIT",
+          "公开仓库、非 fork、当前未归档",
+          "安装步骤来自项目官方 README 或官方文档",
+          "仅链接 GitHub 官方仓库与项目官方文档"
+        ],
+        "limitations": "项目增长很快但发布时间较短，适合试验与学习；重要仓库使用前应限制权限并保留版本备份。"
+      }
+    },
+    "openchatcut": {
+      "stars": 3082,
+      "createdAt": "2026-07-15T02:49:42Z",
+      "pushedAt": "2026-11-12T12:08:42Z",
+      "license": "AGPL-3.0",
+      "licenseClass": "osi",
+      "licenseNote": "AGPL-3.0。若修改后通过网络向他人提供服务，需要按许可证提供对应源代码。",
+      "officialOrg": false,
+      "documentationQuality": 9,
+      "readmeSummary": "OpenChatCut 是本地优先的对话式视频编辑器，支持多轨时间线、字幕、Agent 和 Remotion 导出。README 同时提供桌面安装包和 Node.js 24 源码运行方式。",
+      "quickest": "Windows 用户优先下载官方 Releases 中的 x64 安装包，比从源码运行更省事。",
+      "requirements": [
+        "Windows x64 安装包，或 Node.js 24.x + npm",
+        "视频项目建议放在独立目录",
+        "在线模型功能按需配置 API Key"
+      ],
+      "steps": [
+        {
+          "title": "安装桌面版",
+          "detail": "从官方 Releases 下载 Windows x64 安装包。"
+        },
+        {
+          "title": "或从源码运行",
+          "detail": "README 的源码启动步骤。",
+          "command": "git clone https://github.com/0xsline/OpenChatCut.git\ncd OpenChatCut\nnpm install\ncopy .env.example .env.local\nnpm run dev"
+        },
+        {
+          "title": "打开编辑器",
+          "detail": "源码模式访问本机地址；桌面版从开始菜单启动。"
+        }
+      ],
+      "launch": {
+        "label": "源码模式本地编辑器",
+        "url": "http://localhost:5199/",
+        "note": "README 指定源码开发模式使用 5199 端口。"
+      },
+      "cautions": [
+        "项目仍处于早期阶段，重要工程先备份。",
+        "只填写自己实际使用的模型或媒体服务密钥。",
+        "不要把未公开视频素材上传到不需要的第三方服务。"
+      ],
+      "docsUrl": "https://openchatcut.com/",
+      "security": {
+        "status": "passed",
+        "label": "开源安全初筛通过",
+        "reasons": [
+          "许可证：AGPL-3.0",
+          "公开仓库、非 fork、当前未归档",
+          "安装步骤来自项目官方 README 或官方文档",
+          "仅链接 GitHub 官方仓库与项目官方文档"
+        ],
+        "limitations": "项目较新且安装包仍可能出现签名或兼容性问题；建议先在测试项目中使用并开启版本备份。"
+      }
+    },
+    "nod": {
+      "stars": 660,
+      "createdAt": "2026-09-25T13:46:42Z",
+      "pushedAt": "2026-11-12T12:06:56Z",
+      "license": "Apache-2.0",
+      "licenseClass": "osi",
+      "licenseNote": "Apache-2.0。",
+      "officialOrg": true,
+      "documentationQuality": 8,
+      "readmeSummary": "Nod 是 n8n 团队近期开源的本地个人 Agent，可操作真实网站，但执行前会请求确认。README 提供 Windows/macOS 安装包和源码运行方式。",
+      "quickest": "从官方 Releases 下载 Windows 安装包，先在测试账号中使用。",
+      "requirements": [
+        "Windows/macOS",
+        "选择并配置自己的模型",
+        "用于测试的网站账号"
+      ],
+      "steps": [
+        {
+          "title": "安装桌面端",
+          "detail": "从官方 README 指向的 Windows 安装包下载并安装。"
+        },
+        {
+          "title": "或从源码运行",
+          "detail": "README 给出的源码启动命令。",
+          "command": "git clone https://github.com/n8n-io/nod.git\ncd nod\npnpm start"
+        },
+        {
+          "title": "首次使用",
+          "detail": "选择模型，给一个低风险任务，并逐次检查 Agent 请求执行的网页操作。"
+        }
+      ],
+      "launch": {
+        "label": "官方文档",
+        "url": "https://nod.n8n.io/docs/",
+        "note": "桌面版安装后启动；源码模式按终端输出访问。"
+      },
+      "cautions": [
+        "不要让 Agent 直接操作网银、学校教务或含敏感信息的账号。",
+        "每次自动点击和提交前都要检查目标网站与动作。",
+        "项目较新，建议只使用测试数据。"
+      ],
+      "docsUrl": "https://nod.n8n.io/docs/",
+      "security": {
+        "status": "passed",
+        "label": "开源安全初筛通过",
+        "reasons": [
+          "许可证：Apache-2.0",
+          "公开仓库、非 fork、当前未归档",
+          "安装步骤来自项目官方 README 或官方文档",
+          "仅链接 GitHub 官方仓库与项目官方文档"
+        ],
+        "limitations": "项目发布于 2026 年且能直接操作浏览器，初筛通过许可证和公开来源，但高风险自动化场景仍需人工确认与隔离账号。"
+      }
+    },
+    "musescore": {
+      "stars": 15452,
+      "createdAt": "2012-05-26T12:46:33Z",
+      "pushedAt": "2026-11-19T14:56:41Z",
+      "license": "GPL-3.0",
+      "licenseClass": "osi",
+      "licenseNote": "GPL-3.0；仓库 LICENSE.txt 声明，GitHub 未自动识别。",
+      "officialOrg": true,
+      "documentationQuality": 7,
+      "readmeSummary": "MuseScore4 是免费乐谱编辑工具，支持 MIDI 输入、音频导出和在线协作。普通用户从官网下载安装包即可，不需要编译源码。",
+      "quickest": "从官网下载 Windows 安装包，新建乐谱开始输入音符。",
+      "requirements": [
+        "Windows 10+ / macOS / Linux"
+      ],
+      "steps": [
+        {
+          "title": "下载安装",
+          "detail": "从官网选择系统安装包。"
+        },
+        {
+          "title": "新建乐谱",
+          "detail": "选择调号和拍号，开始输入音符。"
+        },
+        {
+          "title": "导出",
+          "detail": "支持导出 PDF、MIDI、音频等格式。"
+        }
+      ],
+      "launch": {
+        "label": "官网下载",
+        "url": "https://musescore.com/en/download",
+        "note": "README 指向官网下载页。"
+      },
+      "cautions": [
+        "MuseScore4 处于活跃开发中，部分功能可能仍在完善。",
+        "大型乐谱文件可能加载较慢。"
+      ],
+      "docsUrl": "https://musescore.com/en/manual",
+      "security": {
+        "status": "passed",
+        "label": "开源安全初筛通过",
+        "reasons": [
+          "许可证：GPL-3.0",
+          "公开仓库、非 fork、当前未归档",
+          "安装步骤来自项目官网",
+          "仅链接 GitHub 官方仓库与项目官方文档"
+        ],
+        "limitations": "初筛只核对公开来源、许可证、维护状态和安装文档，不等同于完整代码安全审计。"
+      }
+    },
+    "whisper": {
+      "stars": 113099,
+      "createdAt": "2022-09-16T20:02:54Z",
+      "pushedAt": "2026-08-31T17:19:19Z",
+      "license": "MIT",
+      "licenseClass": "osi",
+      "licenseNote": "MIT。",
+      "officialOrg": true,
+      "documentationQuality": 8,
+      "readmeSummary": "Whisper 是 OpenAI 开源的多语言语音识别模型，支持 99 种语言。普通用户通过 pip 安装后调用 Python API 或命令行工具即可使用。",
+      "quickest": "pip install openai-whisper，然后用 whisper audio.mp4 生成字幕。",
+      "requirements": [
+        "Python 3.8+",
+        "PyTorch",
+        "约 1-3 GB 磁盘空间（模型文件）"
+      ],
+      "steps": [
+        {
+          "title": "安装",
+          "detail": "pip install openai-whisper"
+        },
+        {
+          "title": "运行",
+          "detail": "whisper audio.mp4 --model base --language zh"
+        },
+        {
+          "title": "查看结果",
+          "detail": "输出 .srt 和 .txt 字幕文件。"
+        }
+      ],
+      "launch": {
+        "label": "官方 README",
+        "url": "https://github.com/openai/whisper",
+        "note": "README 包含完整使用示例。"
+      },
+      "cautions": [
+        "大模型（large）需要 GPU 才能流畅运行，base/small 模型 CPU 可用。",
+        "首次运行会自动下载模型文件，注意网络。"
+      ],
+      "docsUrl": "https://github.com/openai/whisper",
+      "security": {
+        "status": "passed",
+        "label": "开源安全初筛通过",
+        "reasons": [
+          "许可证：MIT",
+          "公开仓库、非 fork、当前未归档",
+          "安装步骤来自项目官方 README",
+          "仅链接 GitHub 官方仓库"
+        ],
+        "limitations": "初筛只核对公开来源、许可证、维护状态和安装文档，不等同于完整代码安全审计。"
+      }
+    },
+    "lossless-cut": {
+      "stars": 46199,
+      "createdAt": "2016-10-30T10:49:56Z",
+      "pushedAt": "2026-11-14T02:45:16Z",
+      "license": "GPL-2.0",
+      "licenseClass": "osi",
+      "licenseNote": "GPL-2.0。",
+      "officialOrg": true,
+      "documentationQuality": 8,
+      "readmeSummary": "LosslessCut 用 ffmpeg 按关键帧无损切割音视频，适合快速去除录屏中的无用片段。官方提供 Windows 安装包，普通用户不需要编译。",
+      "quickest": "从官方 Releases 下载 Windows 安装包，拖入视频后设置起止点导出。",
+      "requirements": [
+        "Windows 10+ / macOS / Linux",
+        "无需单独安装 ffmpeg（安装包已内置）"
+      ],
+      "steps": [
+        {
+          "title": "下载安装",
+          "detail": "在官方 Releases 选择 Windows 安装包。"
+        },
+        {
+          "title": "导入素材",
+          "detail": "把视频或音频拖入窗口。"
+        },
+        {
+          "title": "标记并导出",
+          "detail": "设置起止点，选择输出目录后导出。"
+        }
+      ],
+      "launch": {
+        "label": "官方 Releases",
+        "url": "https://github.com/mifi/lossless-cut/releases",
+        "note": "README 指向 GitHub Releases。"
+      },
+      "cautions": [
+        "无损切割只能切在关键帧附近，精确到帧的剪辑需要重新编码。",
+        "处理重要素材前先备份原文件。"
+      ],
+      "docsUrl": "https://github.com/mifi/lossless-cut",
+      "security": {
+        "status": "passed",
+        "label": "开源安全初筛通过",
+        "reasons": [
+          "许可证：GPL-2.0",
+          "公开仓库、非 fork、当前未归档",
+          "安装步骤来自项目官方 README",
+          "仅链接 GitHub 官方仓库与项目官方文档"
+        ],
+        "limitations": "初筛只核对公开来源、许可证、维护状态和安装文档，不等同于完整代码安全审计。"
+      }
+    },
+    "reveal-js": {
+      "stars": 72604,
+      "createdAt": "2011-06-07T18:54:22Z",
+      "pushedAt": "2026-09-30T19:38:13Z",
+      "license": "MIT",
+      "licenseClass": "osi",
+      "licenseNote": "MIT。",
+      "officialOrg": true,
+      "documentationQuality": 9,
+      "readmeSummary": "reveal.js 用 HTML/Markdown 制作网页幻灯片，支持代码高亮、演讲者注释和 PDF 导出。可直接用官方模板，也可通过 npm 安装。",
+      "quickest": "下载官方 ZIP，打开 demo.html，然后复制模板改成自己的内容。",
+      "requirements": [
+        "现代浏览器",
+        "可选：Node.js 用于 npm 安装和本地预览"
+      ],
+      "steps": [
+        {
+          "title": "获取模板",
+          "detail": "从官方仓库下载 ZIP 或克隆仓库。"
+        },
+        {
+          "title": "修改内容",
+          "detail": "编辑 index.html 中的 section 或改用 Markdown。"
+        },
+        {
+          "title": "预览导出",
+          "detail": "浏览器打开后按 S 看演讲者视图，按 E 导出 PDF。"
+        }
+      ],
+      "launch": {
+        "label": "官方演示",
+        "url": "https://revealjs.com/",
+        "note": "README 指向官方演示站和文档。"
+      },
+      "cautions": [
+        "网页幻灯片的字体和排版依赖浏览器，正式答辩前在目标电脑上预览一次。",
+        "使用第三方主题或插件前先检查其许可证。"
+      ],
+      "docsUrl": "https://revealjs.com/",
+      "security": {
+        "status": "passed",
+        "label": "开源安全初筛通过",
+        "reasons": [
+          "许可证：MIT",
+          "公开仓库、非 fork、当前未归档",
+          "安装步骤来自项目官方 README",
+          "仅链接 GitHub 官方仓库与项目官方文档"
+        ],
+        "limitations": "初筛只核对公开来源、许可证、维护状态和安装文档，不等同于完整代码安全审计。"
+      }
+    },
+    "typst": {
+      "stars": 57292,
+      "createdAt": "2019-09-24T21:41:56Z",
+      "pushedAt": "2026-11-19T10:20:21Z",
+      "license": "Apache-2.0",
+      "licenseClass": "osi",
+      "licenseNote": "Apache-2.0。",
+      "officialOrg": true,
+      "documentationQuality": 9,
+      "readmeSummary": "Typst 是现代排版系统，用简洁语法生成 PDF。官方提供在线编辑器和各平台安装包，适合论文、报告和幻灯片。",
+      "quickest": "在 Typst 官方 Web App 新建文档，或从 Releases 安装桌面版后运行 typst compile。",
+      "requirements": [
+        "Windows/macOS/Linux",
+        "可选：本地安装 Typst CLI"
+      ],
+      "steps": [
+        {
+          "title": "选择入口",
+          "detail": "先用官方 Web App 试写，再决定是否安装桌面版。"
+        },
+        {
+          "title": "写内容",
+          "detail": "用 #set 和 = 标题语法组织文档。"
+        },
+        {
+          "title": "编译 PDF",
+          "detail": "本地运行 typst compile main.typ 生成 PDF。"
+        }
+      ],
+      "launch": {
+        "label": "官方 Web App",
+        "url": "https://typst.app/",
+        "note": "README 指向官方文档和 Web App。"
+      },
+      "cautions": [
+        "部分学校模板只提供 LaTeX 版本，需要自行转换或改用 LaTeX。",
+        "Typst 语法与 LaTeX 不同，不要直接粘贴 LaTeX 命令。"
+      ],
+      "docsUrl": "https://typst.app/docs/",
+      "security": {
+        "status": "passed",
+        "label": "开源安全初筛通过",
+        "reasons": [
+          "许可证：Apache-2.0",
+          "公开仓库、非 fork、当前未归档",
+          "安装步骤来自项目官方 README",
+          "仅链接 GitHub 官方仓库与项目官方文档"
+        ],
+        "limitations": "初筛只核对公开来源、许可证、维护状态和安装文档，不等同于完整代码安全审计。"
+      }
+    },
+    "audacity": {
+      "stars": 19108,
+      "createdAt": "2015-03-26T10:46:17Z",
+      "pushedAt": "2026-11-19T13:25:55Z",
+      "license": "GPL-2.0",
+      "licenseClass": "osi",
+      "licenseNote": "GPL-2.0；仓库 LICENSE.txt 声明，GitHub 未自动识别。",
+      "officialOrg": true,
+      "documentationQuality": 8,
+      "readmeSummary": "Audacity 是多轨音频编辑软件，支持录音、降噪、剪切、混音和多种格式导出。普通用户从官网下载安装包即可。",
+      "quickest": "从官网下载 Windows 安装包，导入音频后先做降噪和剪切。",
+      "requirements": [
+        "Windows 10+ / macOS / Linux",
+        "建议预留 500 MB 以上磁盘空间"
+      ],
+      "steps": [
+        {
+          "title": "下载安装",
+          "detail": "从 Audacity 官网选择 Windows 安装包。"
+        },
+        {
+          "title": "导入音频",
+          "detail": "拖入录音或配乐，先保存项目文件。"
+        },
+        {
+          "title": "编辑导出",
+          "detail": "降噪、剪切、混音后导出 WAV 或 MP3。"
+        }
+      ],
+      "launch": {
+        "label": "官网下载",
+        "url": "https://www.audacityteam.org/download/",
+        "note": "README 指向官网下载页。"
+      },
+      "cautions": [
+        "导出 MP3 可能需要额外的编码库，按官方提示安装。",
+        "处理重要录音前先保留原始文件副本。"
+      ],
+      "docsUrl": "https://support.audacityteam.org/",
+      "security": {
+        "status": "passed",
+        "label": "开源安全初筛通过",
+        "reasons": [
+          "许可证：GPL-2.0（LICENSE.txt）",
+          "公开仓库、非 fork、当前未归档",
+          "安装步骤来自项目官网",
+          "仅链接 GitHub 官方仓库与项目官方文档"
+        ],
+        "limitations": "初筛只核对公开来源、许可证、维护状态和安装文档，不等同于完整代码安全审计。"
+      }
+    }
+  }
+}

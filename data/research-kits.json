@@ -1,0 +1,803 @@
+{
+  "version": 1,
+  "updatedAt": "2026-11-12",
+  "notice": "先通过学校图书馆或校园网确认数据库权限。开放访问资源可直接使用，订阅资源通常需要机构账号。",
+  "stages": {
+    "starter": {
+      "label": "刚入门",
+      "summary": "先跑通一条检索、管理、阅读的链路，不急着同时装很多软件。"
+    },
+    "course": {
+      "label": "课程论文",
+      "summary": "优先建立可复用的检索式和文献笔记模板，保证引用来源清楚。"
+    },
+    "lab": {
+      "label": "进实验室",
+      "summary": "把文献、实验记录、数据分析和图表输出串成固定流程，减少重复操作。"
+    },
+    "thesis": {
+      "label": "毕业设计",
+      "summary": "优先考虑可复现、可追溯和长期维护，给每次分析保留版本与参数。"
+    },
+    "exploring": {
+      "label": "还在探索",
+      "summary": "先用开放资源体验完整流程，确认方向后再申请专业数据库权限。"
+    }
+  },
+  "majors": [
+    {
+      "id": "food-science",
+      "label": "食品科学与工程",
+      "short": "食品 / 营养 / 安全",
+      "accent": "#2f7d5c",
+      "summary": "围绕食品化学、微生物、安全检测、营养与感官评价建立检索链路，优先保留标准、配方和实验条件。",
+      "databases": [
+        {
+          "name": "FSTA",
+          "kind": "食品科学文摘库",
+          "url": "https://www.ifis.org/fsta",
+          "why": "覆盖食品科学、营养、安全与加工技术，适合先做主题全景检索。",
+          "access": "通常需学校订阅"
+        },
+        {
+          "name": "Web of Science",
+          "kind": "综合引文库",
+          "url": "https://www.webofscience.com/",
+          "why": "用被引关系和综述快速定位高影响力论文，适合建立核心文献清单。",
+          "access": "通常需学校订阅"
+        },
+        {
+          "name": "PubMed",
+          "kind": "生物医学文献库",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/",
+          "why": "查营养、食品安全与健康效应研究，开放访问且更新稳定。",
+          "access": "开放访问"
+        },
+        {
+          "name": "国家标准全文公开系统",
+          "kind": "标准与规范",
+          "url": "https://openstd.samr.gov.cn/bzgk/gb/",
+          "why": "查食品检测方法、限量要求和产品标准，避免只读论文不核对标准。",
+          "access": "开放访问"
+        }
+      ],
+      "tools": [
+        {
+          "name": "Zotero",
+          "kind": "文献管理",
+          "url": "https://www.zotero.org/",
+          "why": "按原料、工艺、指标和结论给文献打标签，写论文时直接插入引用。",
+          "access": "免费"
+        },
+        {
+          "name": "R / RStudio",
+          "kind": "统计与可视化",
+          "url": "https://www.r-project.org/",
+          "why": "适合方差分析、感官评价统计和实验设计可视化。",
+          "access": "免费"
+        },
+        {
+          "name": "OriginPro",
+          "kind": "科研绘图",
+          "url": "https://www.originlab.com/",
+          "why": "处理食品理化指标、响应面和期刊图表时效率较高。",
+          "access": "通常需学校授权"
+        },
+        {
+          "name": "Python",
+          "kind": "数据清洗",
+          "url": "https://www.python.org/",
+          "why": "批量整理检测数据、生成可复现图表，并沉淀为可复用脚本。",
+          "access": "免费"
+        }
+      ],
+      "workflow": [
+        {
+          "label": "先查标准与综述",
+          "detail": "在标准系统确认检测方法和限量，再用 FSTA 或 Web of Science 找近五年综述。"
+        },
+        {
+          "label": "把文献按变量分组",
+          "detail": "在 Zotero 中按原料、加工条件、检测指标、主要结论四类标签整理。"
+        },
+        {
+          "label": "用一张表串起实验",
+          "detail": "建立“样品编号、处理条件、指标、重复数、统计方法”表，再进入 R 或 Origin 分析。"
+        }
+      ],
+      "searchRecipe": {
+        "title": "食品主题检索式",
+        "query": "(\"food safety\" OR \"food quality\" OR \"shelf life\") AND (antioxidant OR microbial OR sensory) AND (2020:2026)",
+        "note": "把食品关键词替换成你的原料和指标；先限定近五年，再看高被引综述向前追溯。"
+      }
+    },
+    {
+      "id": "cs-ai",
+      "label": "计算机 / 人工智能",
+      "short": "计算机 / AI / 数据",
+      "accent": "#5b5bd6",
+      "summary": "优先建立论文、代码、数据集和基线实验的对应关系，避免只读摘要不看可复现实现。",
+      "databases": [
+        {
+          "name": "DBLP",
+          "kind": "计算机文献库",
+          "url": "https://dblp.org/",
+          "why": "按作者、会议和期刊追踪计算机方向论文，元数据干净。",
+          "access": "开放访问"
+        },
+        {
+          "name": "arXiv",
+          "kind": "预印本",
+          "url": "https://arxiv.org/",
+          "why": "快速跟进 AI 新工作，但需要主动核对是否经过同行评审。",
+          "access": "开放访问"
+        },
+        {
+          "name": "Papers with Code",
+          "kind": "论文与代码",
+          "url": "https://paperswithcode.com/",
+          "why": "从任务、数据集和排行榜找到基线实现，适合做小产品前先验证可行性。",
+          "access": "开放访问"
+        },
+        {
+          "name": "Semantic Scholar",
+          "kind": "语义检索",
+          "url": "https://www.semanticscholar.org/",
+          "why": "查引用关系和相关工作，适合从一篇核心论文扩展阅读。",
+          "access": "开放访问"
+        }
+      ],
+      "tools": [
+        {
+          "name": "Zotero",
+          "kind": "文献管理",
+          "url": "https://www.zotero.org/",
+          "why": "给论文记录任务、模型、数据集、指标和复现状态。",
+          "access": "免费"
+        },
+        {
+          "name": "GitHub",
+          "kind": "代码与版本",
+          "url": "https://github.com/",
+          "why": "保存复现实验、记录 issue 和 commit，形成可展示的项目证据。",
+          "access": "免费基础版"
+        },
+        {
+          "name": "Overleaf",
+          "kind": "论文写作",
+          "url": "https://www.overleaf.com/",
+          "why": "多人协作写 LaTeX 论文，公式、图表和参考文献管理更稳定。",
+          "access": "免费基础版"
+        },
+        {
+          "name": "Hugging Face",
+          "kind": "模型与数据",
+          "url": "https://huggingface.co/",
+          "why": "找公开模型、数据集和 demo，先把最小实验跑通。",
+          "access": "免费基础版"
+        }
+      ],
+      "workflow": [
+        {
+          "label": "先锁定任务和基线",
+          "detail": "在 Papers with Code 找任务、数据集和基线，记录指标与代码链接。"
+        },
+        {
+          "label": "只复现一个最小实验",
+          "detail": "用固定随机种子和公开数据跑通 baseline，记录环境、参数和失败原因。"
+        },
+        {
+          "label": "把结论写成可验证陈述",
+          "detail": "每个结论都对应实验编号、数据集、指标和代码版本，避免只写主观感受。"
+        }
+      ],
+      "searchRecipe": {
+        "title": "AI 主题检索式",
+        "query": "(\"retrieval augmented generation\" OR \"RAG\") AND (evaluation OR benchmark OR dataset) AND (2023:2026)",
+        "note": "把 RAG 换成你的任务名，同时检索 arXiv、DBLP 和 Papers with Code，分别找论文、会议和代码。"
+      }
+    },
+    {
+      "id": "bio-medicine",
+      "label": "生物 / 医学 / 生命科学",
+      "short": "生物 / 医学 / 健康",
+      "accent": "#b44b6a",
+      "summary": "先确认研究对象、证据等级和伦理边界，再决定读综述、临床试验还是机制研究。",
+      "databases": [
+        {
+          "name": "PubMed",
+          "kind": "生物医学文献库",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/",
+          "why": "生命科学和医学检索的第一入口，支持 MeSH 主题词。",
+          "access": "开放访问"
+        },
+        {
+          "name": "Embase",
+          "kind": "医学与药学",
+          "url": "https://www.elsevier.com/products/embase",
+          "why": "补充 PubMed 覆盖，药物、会议摘要和欧洲文献更充分。",
+          "access": "通常需学校订阅"
+        },
+        {
+          "name": "ClinicalTrials.gov",
+          "kind": "临床试验",
+          "url": "https://clinicaltrials.gov/",
+          "why": "查研究设计、入排标准和注册信息，判断证据是否完整。",
+          "access": "开放访问"
+        },
+        {
+          "name": "Web of Science",
+          "kind": "综合引文库",
+          "url": "https://www.webofscience.com/",
+          "why": "追踪高影响力机制研究和跨学科引用。",
+          "access": "通常需学校订阅"
+        }
+      ],
+      "tools": [
+        {
+          "name": "Zotero",
+          "kind": "文献管理",
+          "url": "https://www.zotero.org/",
+          "why": "按疾病、模型、干预、结局和证据类型整理文献。",
+          "access": "免费"
+        },
+        {
+          "name": "GraphPad Prism",
+          "kind": "统计与绘图",
+          "url": "https://www.graphpad.com/",
+          "why": "适合生命科学常见统计检验和期刊风格图表。",
+          "access": "通常需学校授权"
+        },
+        {
+          "name": "R / Bioconductor",
+          "kind": "组学分析",
+          "url": "https://www.r-project.org/",
+          "why": "转录组、差异分析和可视化生态完整，便于记录分析流程。",
+          "access": "免费"
+        },
+        {
+          "name": "BioRender",
+          "kind": "科研示意图",
+          "url": "https://www.biorender.com/",
+          "why": "快速制作机制图和实验流程示意图。",
+          "access": "免费基础版"
+        }
+      ],
+      "workflow": [
+        {
+          "label": "先写清研究问题",
+          "detail": "用对象、干预或暴露、对照、结局四要素描述问题，再选择数据库和检索词。"
+        },
+        {
+          "label": "记录证据等级",
+          "detail": "每篇文献标注综述、随机对照、队列、病例或机制研究，避免混合比较。"
+        },
+        {
+          "label": "统计前先固定分析计划",
+          "detail": "明确主要结局、重复数、排除标准和检验方法，再打开 GraphPad 或 R。"
+        }
+      ],
+      "searchRecipe": {
+        "title": "医学主题检索式",
+        "query": "(\"gut microbiota\" OR microbiome) AND (inflammation OR metabolic) AND (randomized OR cohort OR review) AND (2020:2026)",
+        "note": "先用 MeSH 查规范主题词，再补充作者常用表达；不要把不同证据类型直接混在一起下结论。"
+      }
+    },
+    {
+      "id": "chemistry-materials",
+      "label": "化学 / 材料 / 化工",
+      "short": "化学 / 材料 / 能源",
+      "accent": "#8a5a2b",
+      "summary": "围绕结构、性能、合成条件和表征方法建立证据链，特别留意晶体结构和实验条件。",
+      "databases": [
+        {
+          "name": "SciFinder-n",
+          "kind": "化学信息",
+          "url": "https://scifinder-n.cas.org/",
+          "why": "检索物质、反应、合成路线和专利，是化学方向的重要入口。",
+          "access": "通常需学校订阅"
+        },
+        {
+          "name": "Reaxys",
+          "kind": "反应与合成",
+          "url": "https://www.reaxys.com/",
+          "why": "查反应条件、产率和合成路线，适合从化合物反查实验方案。",
+          "access": "通常需学校订阅"
+        },
+        {
+          "name": "Materials Project",
+          "kind": "材料计算数据",
+          "url": "https://materialsproject.org/",
+          "why": "查材料结构、能带和稳定性等计算数据，适合筛选候选材料。",
+          "access": "免费注册"
+        },
+        {
+          "name": "ICSD",
+          "kind": "晶体结构",
+          "url": "https://icsd.fiz-karlsruhe.de/",
+          "why": "核对晶体结构参数和文献来源，避免结构信息误引。",
+          "access": "通常需学校订阅"
+        }
+      ],
+      "tools": [
+        {
+          "name": "Zotero",
+          "kind": "文献管理",
+          "url": "https://www.zotero.org/",
+          "why": "按材料体系、合成方法、表征技术和性能指标建立标签。",
+          "access": "免费"
+        },
+        {
+          "name": "ChemDraw",
+          "kind": "结构绘制",
+          "url": "https://www.revvitysignals.com/products/chemdraw",
+          "why": "绘制反应式、结构式和实验流程图，方便论文与汇报复用。",
+          "access": "通常需学校授权"
+        },
+        {
+          "name": "VESTA",
+          "kind": "晶体结构可视化",
+          "url": "https://jp-minerals.org/vesta/en/",
+          "why": "查看晶胞、原子配位和结构差异，制作材料结构图。",
+          "access": "免费"
+        },
+        {
+          "name": "Python / pymatgen",
+          "kind": "材料数据分析",
+          "url": "https://pymatgen.org/",
+          "why": "批量处理结构文件、计算数据并生成可复现分析脚本。",
+          "access": "免费"
+        }
+      ],
+      "workflow": [
+        {
+          "label": "从物质反查文献",
+          "detail": "先用 SciFinder-n 或 Reaxys 确认物质与反应，再用 Web of Science 追论文背景。"
+        },
+        {
+          "label": "建立条件对照表",
+          "detail": "统一记录温度、时间、溶剂、配比、产率和表征方法，避免只摘结论。"
+        },
+        {
+          "label": "图表和原始数据分开保存",
+          "detail": "保留仪器原始文件、处理脚本和最终图，保证审稿时能追溯。"
+        }
+      ],
+      "searchRecipe": {
+        "title": "材料主题检索式",
+        "query": "(\"solid electrolyte\" OR \"ionic conductivity\") AND (doping OR interface) AND (synthesis OR characterization) AND (2020:2026)",
+        "note": "化合物名称先在 SciFinder-n 校正，再到 Web of Science 查性能与机制。"
+      }
+    },
+    {
+      "id": "engineering",
+      "label": "机械 / 电子 / 自动化",
+      "short": "机械 / 电子 / 控制",
+      "accent": "#b05a24",
+      "summary": "把设计参数、仿真设置、实验平台和测试结果对应起来，优先关注可重复的工程条件。",
+      "databases": [
+        {
+          "name": "IEEE Xplore",
+          "kind": "电子与工程",
+          "url": "https://ieeexplore.ieee.org/",
+          "why": "查电子、控制、通信和自动化论文与会议。",
+          "access": "通常需学校订阅"
+        },
+        {
+          "name": "Engineering Village",
+          "kind": "工程索引",
+          "url": "https://www.engineeringvillage.com/",
+          "why": "Compendex 覆盖机械、材料、制造和工程应用文献。",
+          "access": "通常需学校订阅"
+        },
+        {
+          "name": "Espacenet",
+          "kind": "专利检索",
+          "url": "https://worldwide.espacenet.com/",
+          "why": "查技术方案和专利族，做产品设计前先确认现有技术。",
+          "access": "开放访问"
+        },
+        {
+          "name": "Web of Science",
+          "kind": "综合引文库",
+          "url": "https://www.webofscience.com/",
+          "why": "补充跨学科引用和综述追踪。",
+          "access": "通常需学校订阅"
+        }
+      ],
+      "tools": [
+        {
+          "name": "Zotero",
+          "kind": "文献与参数管理",
+          "url": "https://www.zotero.org/",
+          "why": "记录论文、专利、设计参数和实验条件。",
+          "access": "免费"
+        },
+        {
+          "name": "MATLAB / Octave",
+          "kind": "建模与控制",
+          "url": "https://www.mathworks.com/products/matlab.html",
+          "why": "控制系统、信号处理和仿真分析；预算有限可先用 Octave。",
+          "access": "MATLAB 需授权，Octave 免费"
+        },
+        {
+          "name": "ANSYS",
+          "kind": "有限元仿真",
+          "url": "https://www.ansys.com/",
+          "why": "结构、热和流体仿真，适合验证设计参数。",
+          "access": "通常需学校授权"
+        },
+        {
+          "name": "SolidWorks",
+          "kind": "三维设计",
+          "url": "https://www.solidworks.com/",
+          "why": "建立装配模型、工程图并导出仿真或加工输入。",
+          "access": "通常需学校授权"
+        }
+      ],
+      "workflow": [
+        {
+          "label": "先做专利和论文双检索",
+          "detail": "Espacenet 看现有技术，IEEE 或 Engineering Village 看方法和实验验证。"
+        },
+        {
+          "label": "固定设计与仿真参数",
+          "detail": "记录模型版本、边界条件、网格设置和求解器版本，避免结果无法复现。"
+        },
+        {
+          "label": "用测试结果闭环",
+          "detail": "把仿真预测和实验测量放在同一张表，明确误差来源和改进方向。"
+        }
+      ],
+      "searchRecipe": {
+        "title": "工程主题检索式",
+        "query": "(\"model predictive control\" OR MPC) AND (robot OR vehicle) AND (simulation OR experiment) AND (2021:2026)",
+        "note": "同时记录论文中的平台、传感器、控制周期和评价指标，方便判断能否复现。"
+      }
+    },
+    {
+      "id": "economics-management",
+      "label": "经济 / 管理 / 商科",
+      "short": "经济 / 管理 / 金融",
+      "accent": "#4f6f9f",
+      "summary": "先明确研究问题、数据口径和识别策略，再找数据库；避免只看结论不看变量定义与样本范围。",
+      "databases": [
+        {
+          "name": "CNKI",
+          "kind": "中文期刊与统计",
+          "url": "https://www.cnki.net/",
+          "why": "查中文核心文献、政策背景和国内研究进展。",
+          "access": "通常需学校订阅"
+        },
+        {
+          "name": "CSMAR",
+          "kind": "金融与经济数据",
+          "url": "https://data.csmar.com/",
+          "why": "上市公司、金融市场和宏观经济数据，适合课程论文与实证研究。",
+          "access": "通常需学校订阅"
+        },
+        {
+          "name": "Wind",
+          "kind": "金融终端",
+          "url": "https://www.wind.com.cn/",
+          "why": "查行业、公司和市场数据，适合需要高频更新的研究。",
+          "access": "通常需学校终端"
+        },
+        {
+          "name": "SSRN",
+          "kind": "工作论文",
+          "url": "https://www.ssrn.com/",
+          "why": "跟踪经济学、金融和管理学最新工作论文。",
+          "access": "开放访问"
+        }
+      ],
+      "tools": [
+        {
+          "name": "Zotero",
+          "kind": "文献管理",
+          "url": "https://www.zotero.org/",
+          "why": "按理论、数据、方法和结论整理文献。",
+          "access": "免费"
+        },
+        {
+          "name": "Stata",
+          "kind": "计量分析",
+          "url": "https://www.stata.com/",
+          "why": "回归、面板数据和因果识别流程成熟，经管论文常用。",
+          "access": "通常需学校授权"
+        },
+        {
+          "name": "R",
+          "kind": "统计与可视化",
+          "url": "https://www.r-project.org/",
+          "why": "适合可复现的数据清洗、计量分析和图表输出。",
+          "access": "免费"
+        },
+        {
+          "name": "Python / pandas",
+          "kind": "数据整理",
+          "url": "https://pandas.pydata.org/",
+          "why": "合并多表、清洗缺失值和批量生成描述统计。",
+          "access": "免费"
+        }
+      ],
+      "workflow": [
+        {
+          "label": "先写变量定义表",
+          "detail": "逐项记录变量名、单位、口径、来源、年份和缺失处理方式。"
+        },
+        {
+          "label": "先做描述统计再跑模型",
+          "detail": "确认样本量、异常值和分布后，再选择回归或面板模型。"
+        },
+        {
+          "label": "保留原始数据只读版本",
+          "detail": "清洗脚本单独保存，任何调整都能回溯，不直接改原始表。"
+        }
+      ],
+      "searchRecipe": {
+        "title": "经管主题检索式",
+        "query": "(\"digital transformation\" OR \"digitalization\") AND (firm performance OR innovation) AND (panel data OR empirical) AND (2021:2026)",
+        "note": "文献检索和数据库检索分开：先在 CNKI/SSRN 定变量，再到 CSMAR/Wind 查字段是否真的存在。"
+      }
+    },
+    {
+      "id": "humanities-social",
+      "label": "人文 / 社科 / 教育",
+      "short": "人文 / 社科 / 教育",
+      "accent": "#7a5a8f",
+      "summary": "先界定概念、资料范围和论证方法，再建立文献卡片与原始材料索引，避免只堆观点。",
+      "databases": [
+        {
+          "name": "CNKI",
+          "kind": "中文期刊与学位论文",
+          "url": "https://www.cnki.net/",
+          "why": "查国内研究脉络、概念讨论和政策背景。",
+          "access": "通常需学校订阅"
+        },
+        {
+          "name": "国家哲学社会科学文献中心",
+          "kind": "社科开放资源",
+          "url": "https://www.ncpssd.cn/",
+          "why": "提供哲学社会科学期刊和文献，适合先做开放检索。",
+          "access": "开放访问"
+        },
+        {
+          "name": "JSTOR",
+          "kind": "人文社科全文库",
+          "url": "https://www.jstor.org/",
+          "why": "历史、文学、教育和社会科学经典文献覆盖较好。",
+          "access": "通常需学校订阅"
+        },
+        {
+          "name": "Project MUSE",
+          "kind": "人文社科期刊",
+          "url": "https://muse.jhu.edu/",
+          "why": "补充人文社科期刊和大学出版社资源。",
+          "access": "通常需学校订阅"
+        }
+      ],
+      "tools": [
+        {
+          "name": "Zotero",
+          "kind": "文献与引文管理",
+          "url": "https://www.zotero.org/",
+          "why": "按概念、理论、材料类型和论点建立分类。",
+          "access": "免费"
+        },
+        {
+          "name": "Obsidian",
+          "kind": "知识卡片",
+          "url": "https://obsidian.md/",
+          "why": "把文献摘录、概念关系和自己的论证连接起来。",
+          "access": "免费个人版"
+        },
+        {
+          "name": "NVivo",
+          "kind": "质性分析",
+          "url": "https://lumivero.com/products/nvivo/",
+          "why": "访谈、文本和编码分析，适合教育与社会调查研究。",
+          "access": "通常需学校授权"
+        },
+        {
+          "name": "Transkribus",
+          "kind": "手稿识别",
+          "url": "https://transkribus.eu/",
+          "why": "辅助识别历史手稿或档案图片，减少人工转录时间。",
+          "access": "免费基础额度"
+        }
+      ],
+      "workflow": [
+        {
+          "label": "先写概念边界",
+          "detail": "明确核心概念的不同定义、适用语境和争议点，再决定检索词。"
+        },
+        {
+          "label": "建立文献卡片",
+          "detail": "每篇只记研究问题、材料、方法、核心论点和可引用原句。"
+        },
+        {
+          "label": "让论证对应证据",
+          "detail": "每个分论点至少对应一类文献或原始材料，避免只写印象式总结。"
+        }
+      ],
+      "searchRecipe": {
+        "title": "社科主题检索式",
+        "query": "(\"digital literacy\" OR \"AI literacy\") AND (higher education OR university students) AND (survey OR interview OR policy) AND (2020:2026)",
+        "note": "中文数据库用“AI 素养 / 数字素养 / 大学生”组合检索，再对照英文概念，注意术语不完全等价。"
+      }
+    },
+    {
+      "id": "arts-design",
+      "label": "艺术 / 设计 / 传媒",
+      "short": "艺术 / 设计 / 影像",
+      "accent": "#c05b7a",
+      "summary": "把参考作品、设计过程、版本迭代和最终呈现一起保存，研究不仅要有结论，也要有过程证据。",
+      "databases": [
+        {
+          "name": "JSTOR",
+          "kind": "艺术与人文",
+          "url": "https://www.jstor.org/",
+          "why": "查艺术史、视觉文化和设计研究文献与图像资源。",
+          "access": "通常需学校订阅"
+        },
+        {
+          "name": "CNKI",
+          "kind": "中文期刊与案例",
+          "url": "https://www.cnki.net/",
+          "why": "查国内设计教育、传媒研究和实践案例。",
+          "access": "通常需学校订阅"
+        },
+        {
+          "name": "Google Scholar",
+          "kind": "跨库检索",
+          "url": "https://scholar.google.com/",
+          "why": "从关键词和引用关系快速扩展相关研究。",
+          "access": "开放访问"
+        },
+        {
+          "name": "WorldCat",
+          "kind": "全球馆藏",
+          "url": "https://search.worldcat.org/",
+          "why": "查展览图录、专著和稀有资料，再通过馆际互借获取。",
+          "access": "开放访问"
+        }
+      ],
+      "tools": [
+        {
+          "name": "Zotero",
+          "kind": "文献与作品索引",
+          "url": "https://www.zotero.org/",
+          "why": "同时管理论文、展览图录、网页和作品说明。",
+          "access": "免费"
+        },
+        {
+          "name": "Figma",
+          "kind": "视觉与交互设计",
+          "url": "https://www.figma.com/",
+          "why": "保留界面版本、评论和交付标注，方便展示设计过程。",
+          "access": "免费基础版"
+        },
+        {
+          "name": "Adobe Creative Cloud",
+          "kind": "影像与排版",
+          "url": "https://www.adobe.com/creativecloud.html",
+          "why": "完成图像、视频、排版和作品集输出。",
+          "access": "付费订阅"
+        },
+        {
+          "name": "Blender",
+          "kind": "三维与动态",
+          "url": "https://www.blender.org/",
+          "why": "制作三维场景、动画和实验性视觉作品。",
+          "access": "免费"
+        }
+      ],
+      "workflow": [
+        {
+          "label": "建立参考板",
+          "detail": "每张参考图记录来源、作者、年份、可借鉴的形式和不可直接复制的部分。"
+        },
+        {
+          "label": "保留版本与取舍理由",
+          "detail": "每个版本记录改了什么、为什么改、对应哪条反馈。"
+        },
+        {
+          "label": "把作品和论述配对",
+          "detail": "最终展示不仅给成品，也给草图、迭代、测试反馈和设计决策。"
+        }
+      ],
+      "searchRecipe": {
+        "title": "设计研究检索式",
+        "query": "(\"visual identity\" OR \"design process\") AND (higher education OR student project) AND (case study OR practice-based) AND (2020:2026)",
+        "note": "文献关键词之外，再用作品集平台和展览档案找视觉参考，但必须记录来源与授权状态。"
+      }
+    },
+    {
+      "id": "general",
+      "label": "其他 / 交叉学科",
+      "short": "通用科研入口",
+      "accent": "#5974b9",
+      "summary": "先用开放数据库和通用工具跑通一条完整链路，等研究问题稳定后再补专业数据库。",
+      "databases": [
+        {
+          "name": "OpenAlex",
+          "kind": "开放学术图谱",
+          "url": "https://openalex.org/",
+          "why": "免费查论文、作者、机构和引用关系，适合跨学科探索。",
+          "access": "开放访问"
+        },
+        {
+          "name": "DOAJ",
+          "kind": "开放获取期刊",
+          "url": "https://doaj.org/",
+          "why": "筛选开放获取期刊，快速确认期刊基本信息。",
+          "access": "开放访问"
+        },
+        {
+          "name": "Semantic Scholar",
+          "kind": "语义检索",
+          "url": "https://www.semanticscholar.org/",
+          "why": "从一篇论文扩展相关工作、引用和被引文献。",
+          "access": "开放访问"
+        },
+        {
+          "name": "CNKI",
+          "kind": "中文文献",
+          "url": "https://www.cnki.net/",
+          "why": "补充中文期刊、学位论文和政策资料。",
+          "access": "通常需学校订阅"
+        }
+      ],
+      "tools": [
+        {
+          "name": "Zotero",
+          "kind": "文献管理",
+          "url": "https://www.zotero.org/",
+          "why": "先统一管理所有来源，再逐步建立分类和标签。",
+          "access": "免费"
+        },
+        {
+          "name": "Obsidian",
+          "kind": "阅读笔记",
+          "url": "https://obsidian.md/",
+          "why": "连接概念、文献和自己的问题，形成可持续的知识库。",
+          "access": "免费个人版"
+        },
+        {
+          "name": "R / Python",
+          "kind": "数据与可视化",
+          "url": "https://www.python.org/",
+          "why": "完成数据清洗、统计和可复现图表。",
+          "access": "免费"
+        },
+        {
+          "name": "Overleaf",
+          "kind": "论文写作",
+          "url": "https://www.overleaf.com/",
+          "why": "用模板管理结构、公式和参考文献。",
+          "access": "免费基础版"
+        }
+      ],
+      "workflow": [
+        {
+          "label": "先确定一个可回答的问题",
+          "detail": "把宽泛兴趣改写成对象明确、范围有限、能在一周内查到证据的问题。"
+        },
+        {
+          "label": "至少用两个数据库交叉验证",
+          "detail": "开放库找全景，中文库补本土研究，再检查核心文献是否重复出现。"
+        },
+        {
+          "label": "先产出一个小交付物",
+          "detail": "一页检索记录、五篇文献卡片或一张变量表，比收藏大量链接更有效。"
+        }
+      ],
+      "searchRecipe": {
+        "title": "通用主题检索式",
+        "query": "(\"your topic\" OR \"related concept\") AND (review OR empirical OR case study) AND (2020:2026)",
+        "note": "把 your topic 换成你的研究主题，先找综述和高质量实证研究，再顺着参考文献追溯。"
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Secrets and local state
+data/.github-token.json
+data/.github-token.tmp
+*.local.json
+.env
+.env.*
+
+# Runtime output
+outputs/
+*.log
+verify-profile/
+chrome-profile*/
+edge-profile*/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

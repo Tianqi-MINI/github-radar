@@ -1,0 +1,2 @@
+# No third-party runtime dependencies.
+# The server uses only the Python 3.9+ standard library.
