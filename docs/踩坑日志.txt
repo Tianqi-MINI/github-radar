@@ -48,3 +48,12 @@
 - 处置：验收脚本每次使用独立 profile 目录，并在写入测试问卷前先 `localStorage.clear()`。
 - 验证：连续两次 UI 回归均为 9/9 通过。
 - 是否可提炼为通用经验：是（自动化 UI 验收必须隔离浏览器 profile 与本地存储，避免跨轮状态污染）。
+
+### 记录 7：GitHub 推送被本机代理与沙箱 SSH 变量双重拦截
+- 现象：HTTPS 推送先撞上本机失效代理；改用 SSH 后，Git 仍尝试调用一个被沙箱
+  环境变量占位的 `GIT_SSH_COMMAND`，导致 `cmd /c exit 1` 与 `sh.exe` 报错。
+- 处置：使用项目内专用 SSH key 和 443 端口；用批处理包装器固定 Windows OpenSSH
+  参数；推送前先清掉当前进程里的沙箱 `GIT_SSH_COMMAND`，再设置 `GIT_SSH`。
+- 验证：`ssh -T` 成功返回账号名，`git push -u origin master` 成功建立远程分支。
+- 是否可提炼为通用经验：是（推送失败时要分清“代理 / SSH key / Git 的 ssh 变量”
+  三层原因，不能只凭一条报错判断权限不足）。
