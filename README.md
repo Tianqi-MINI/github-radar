@@ -32,6 +32,24 @@
 
 默认地址：`http://127.0.0.1:4173`
 
+## Windows 便携包
+
+不想安装 Python 的用户可以直接使用 `github-radar-portable.zip`：
+
+1. 完整解压 ZIP 文件到任意文件夹。
+2. 双击 `start-github-radar.bat`。
+3. 等待浏览器自动打开页面；关闭黑色窗口即可停止服务。
+
+包内已附带官方 Python 3.12.10 嵌入式运行时，不需要管理员权限，也不修改系统
+环境变量。维护者可用以下命令重新打包：
+
+```powershell
+.\scripts\package-portable.ps1 -PythonEmbedZip .\outputs\python-3.12.10-embed-amd64.zip
+```
+
+打包脚本会排除 Git 数据、密钥文件、缓存和日志；ZIP 与 SHA256 校验文件生成在
+`outputs/` 目录，不会进入 Git 仓库。
+
 只想让同一局域网的其他电脑访问：
 
 ```powershell
