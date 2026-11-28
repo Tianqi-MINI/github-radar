@@ -9,6 +9,8 @@ from __future__ import annotations
 import json
 import sys
 import unittest
+import urllib.error
+import urllib.request
 from email.message import Message
 from pathlib import Path
 from unittest.mock import patch
@@ -26,6 +28,7 @@ from server.feed import (  # noqa: E402
     pick_query,
     rotate_focuses,
 )
+from server import github_api  # noqa: E402
 from server.github_api import parse_rate_limit  # noqa: E402
 from server.ratelimit import SlidingWindowLimiter  # noqa: E402
 
@@ -106,6 +109,32 @@ class RateLimitTests(unittest.TestCase):
     def test_parse_rate_limit_missing_headers(self):
         rate = parse_rate_limit(Message())
         self.assertEqual(rate, {"remaining": None, "resetAt": None, "resource": None})
+
+
+class GitHubFallbackTests(unittest.TestCase):
+    def test_direct_retry_uses_a_fresh_request_after_proxy_failure(self):
+        request = urllib.request.Request("https://api.github.com/rate_limit")
+        direct_hosts = []
+        direct_response = object()
+
+        def fail_through_proxy(mutated_request, timeout):
+            mutated_request.host = "127.0.0.1:9"
+            mutated_request._tunnel_host = "api.github.com"
+            raise urllib.error.URLError(ConnectionRefusedError(61, "proxy refused"))
+
+        class DirectOpener:
+            def open(self, retry_request, timeout):
+                direct_hosts.append(retry_request.host)
+                return direct_response
+
+        with (
+            patch("server.github_api.urllib.request.urlopen", side_effect=fail_through_proxy),
+            patch("server.github_api._DIRECT_OPENER", DirectOpener()),
+        ):
+            result = github_api.open_github(request, timeout=5)
+
+        self.assertIs(result, direct_response)
+        self.assertEqual(direct_hosts, ["api.github.com"])
 
 
 class DataFileTests(unittest.TestCase):

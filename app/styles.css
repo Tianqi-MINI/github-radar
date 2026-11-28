@@ -4548,6 +4548,38 @@ h3 {
   gap: 20px;
 }
 
+.auth-url-box {
+  display: grid;
+  gap: 7px;
+  margin: 6px 0 10px;
+  padding: 13px 14px;
+  border: 1px solid color-mix(in srgb, var(--pine) 24%, var(--line));
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--pine) 4%, var(--white));
+}
+
+.auth-url-box > span {
+  color: var(--ink-faint);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+}
+
+.auth-url-link {
+  min-width: 0;
+  color: var(--pine);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.auth-url-link code {
+  display: block;
+  overflow-wrap: anywhere;
+  color: inherit;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
 .auth-section {
   display: grid;
   gap: 9px;
@@ -4609,6 +4641,16 @@ h3 {
   background: var(--surface-sunken);
   font-family: "Cascadia Code", "Consolas", monospace;
   font-size: 10.5px;
+}
+
+.auth-warning {
+  margin: 4px 0 0;
+  padding: 11px 13px;
+  border-left: 3px solid #a94336;
+  background: rgba(169, 67, 54, 0.055);
+  color: var(--ink-soft);
+  font-size: 11px;
+  line-height: 1.7;
 }
 
 .auth-label {
@@ -5340,5 +5382,158 @@ button.author-work-chip:hover {
 @media (max-width: 760px) {
   .topbar-actions .button.github-auth-topbar span {
     display: none;
+  }
+}
+
+/* Framework-free quick start guide */
+.guide-is-open {
+  overflow: hidden;
+}
+
+.guide-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  pointer-events: auto;
+}
+
+.guide-overlay[hidden],
+.guide-highlight[hidden] {
+  display: none;
+}
+
+.guide-highlight {
+  position: fixed;
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  border-radius: 10px;
+  box-shadow:
+    0 0 0 9999px rgba(8, 20, 16, 0.58),
+    0 0 0 5px rgba(217, 180, 84, 0.3);
+  pointer-events: none;
+  transition:
+    top 220ms ease,
+    left 220ms ease,
+    width 220ms ease,
+    height 220ms ease;
+}
+
+.guide-card {
+  position: fixed;
+  width: min(420px, calc(100vw - 32px));
+  padding: 22px;
+  border: 1px solid rgba(30, 75, 59, 0.22);
+  border-radius: 14px;
+  background: #fbfcf8;
+  color: var(--ink);
+  box-shadow: 0 24px 80px rgba(8, 20, 16, 0.28);
+  pointer-events: auto;
+}
+
+.guide-card:focus {
+  outline: none;
+}
+
+.guide-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-right: 34px;
+}
+
+.guide-progress {
+  color: var(--ink-faint);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+}
+
+.guide-card h2 {
+  margin: 12px 0 8px;
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 3vw, 28px);
+  line-height: 1.25;
+}
+
+.guide-card > p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.guide-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.guide-card-actions > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.guide-skip,
+.guide-close {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink-faint);
+  font: inherit;
+  cursor: pointer;
+}
+
+.guide-skip {
+  font-size: 11px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.guide-close {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.guide-close:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.guide-close svg {
+  width: 15px;
+  height: 15px;
+}
+
+@media (max-width: 700px) {
+  .guide-card {
+    bottom: 12px;
+    top: auto !important;
+    left: 16px !important;
+    width: calc(100vw - 32px);
+    transform: none !important;
+  }
+
+  .guide-card-actions {
+    align-items: flex-start;
+    flex-direction: column-reverse;
+  }
+
+  .guide-card-actions > div {
+    width: 100%;
+  }
+
+  .guide-card-actions > div .button {
+    flex: 1;
   }
 }

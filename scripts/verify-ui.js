@@ -245,7 +245,113 @@ async function main() {
       desktop.scrollWidth <= desktop.innerWidth + 1,
       `${desktop.scrollWidth}/${desktop.innerWidth}`,
     );
+
+    const autoGuide = await evaluate(
+      cdp,
+      `({
+        open: !document.querySelector("[data-guide-overlay]")?.hidden,
+        title: document.querySelector("[data-guide-title]")?.textContent?.trim() ?? "",
+        seen: localStorage.getItem("signal-radar-guide-seen-v1"),
+      })`,
+    );
+    check(
+      "first radar visit opens the guide automatically",
+      autoGuide.open && autoGuide.title === "先看你的配置如何影响推荐" && !autoGuide.seen,
+      JSON.stringify(autoGuide),
+    );
+
     await screenshot(cdp, "verify-desktop.png");
+
+    const guide = await evaluate(
+      cdp,
+      `(() => {
+        const button = document.querySelector("#guide-button");
+        if (!button) return { button: false, open: false, title: "" };
+        button.click();
+        const overlay = document.querySelector("[data-guide-overlay]");
+        return {
+          button: true,
+          open: Boolean(overlay && !overlay.hidden),
+          title: overlay?.querySelector("[data-guide-title]")?.textContent?.trim() ?? "",
+        };
+      })()`,
+    );
+    check(
+      "usage guide opens at the first step",
+      guide.button && guide.open && guide.title === "先看你的配置如何影响推荐",
+      JSON.stringify(guide),
+    );
+
+    const guideNext = await evaluate(
+      cdp,
+      `(() => {
+        document.querySelector("[data-guide-next]")?.click();
+        const overlay = document.querySelector("[data-guide-overlay]");
+        return {
+          open: Boolean(overlay && !overlay.hidden),
+          title: overlay?.querySelector("[data-guide-title]")?.textContent?.trim() ?? "",
+          progress: overlay?.querySelector("[data-guide-progress]")?.textContent?.trim() ?? "",
+        };
+      })()`,
+    );
+    check(
+      "usage guide advances to the second step",
+      guideNext.open &&
+        guideNext.title === "从今日重点选择第一个项目" &&
+        guideNext.progress === "2 / 5",
+      JSON.stringify(guideNext),
+    );
+
+    const guideSkip = await evaluate(
+      cdp,
+      `(() => {
+        document.querySelector("[data-guide-skip]")?.click();
+        return {
+          open: !document.querySelector("[data-guide-overlay]")?.hidden,
+          seen: localStorage.getItem("signal-radar-guide-seen-v1"),
+        };
+      })()`,
+    );
+    check(
+      "skipping the guide stores completion",
+      !guideSkip.open && guideSkip.seen === "1",
+      JSON.stringify(guideSkip),
+    );
+
+    await cdp.send("Page.reload", { ignoreCache: true });
+    await waitFor(cdp, `document.querySelectorAll("#feed-list .feed-item").length > 0`, "feed after guide reload");
+    await sleep(800);
+    const guideStayedClosed = await evaluate(
+      cdp,
+      `document.querySelector("[data-guide-overlay]")?.hidden === true`,
+    );
+    check("completed guide does not reopen after reload", guideStayedClosed);
+
+    const authGuide = await evaluate(
+      cdp,
+      `(() => {
+        document.querySelector("#github-auth-button-top")?.click();
+        const dialog = document.querySelector("#github-auth-dialog");
+        const urlLink = dialog?.querySelector("[data-token-create-url]");
+        const result = {
+          open: Boolean(dialog?.open),
+          steps: dialog?.querySelectorAll(".auth-steps li").length ?? 0,
+          href: urlLink?.href ?? "",
+          visibleUrl: dialog?.querySelector("[data-token-create-url-text]")?.textContent?.trim() ?? "",
+        };
+        return result;
+      })()`,
+    );
+    await screenshot(cdp, "verify-auth-guide.png");
+    await evaluate(cdp, `document.querySelector("#github-auth-close")?.click()`);
+    check(
+      "GitHub token guide shows detailed steps and the full URL",
+      authGuide.open &&
+        authGuide.steps >= 5 &&
+        authGuide.href === authGuide.visibleUrl &&
+        authGuide.href.startsWith("https://github.com/"),
+      JSON.stringify(authGuide),
+    );
 
     await cdp.send("Emulation.setDeviceMetricsOverride", {
       width: 390,
@@ -268,6 +374,30 @@ async function main() {
       `${mobile.scrollWidth}/${mobile.innerWidth}`,
     );
     check("cards survive the mobile resize", mobile.cards >= 3, String(mobile.cards));
+
+    const mobileAuthGuide = await evaluate(
+      cdp,
+      `(() => {
+        document.querySelector("#github-auth-button-top")?.click();
+        const dialog = document.querySelector("#github-auth-dialog");
+        const urlBox = dialog?.querySelector(".auth-url-box");
+        return {
+          open: Boolean(dialog?.open),
+          pageWidth: document.documentElement.scrollWidth,
+          viewportWidth: window.innerWidth,
+          urlBoxFits: Boolean(urlBox && urlBox.scrollWidth <= urlBox.clientWidth + 1),
+        };
+      })()`,
+    );
+    await screenshot(cdp, "verify-auth-mobile.png");
+    await evaluate(cdp, `document.querySelector("#github-auth-close")?.click()`);
+    check(
+      "mobile GitHub token guide stays within the viewport",
+      mobileAuthGuide.open &&
+        mobileAuthGuide.pageWidth <= mobileAuthGuide.viewportWidth + 1 &&
+        mobileAuthGuide.urlBoxFits,
+      JSON.stringify(mobileAuthGuide),
+    );
     await screenshot(cdp, "verify-mobile.png");
 
     const errors = cdp.events.filter(

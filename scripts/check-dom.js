@@ -11,7 +11,7 @@ const html = fs.readFileSync(path.join(root, "app", "index.html"), "utf8");
 const ids = new Set();
 const dynamicIds = new Set();
 
-for (const file of ["app/js/app.js", "app/js/onboard.js"]) {
+for (const file of ["app/js/app.js", "app/js/onboard.js", "app/js/guide.js"]) {
   const source = fs.readFileSync(path.join(root, file), "utf8");
   for (const match of source.matchAll(/querySelector\(\s*["']#([A-Za-z0-9_-]+)/g)) {
     ids.add(match[1]);

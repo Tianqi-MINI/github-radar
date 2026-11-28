@@ -31,6 +31,18 @@ def _direct_opener() -> urllib.request.OpenerDirector:
     return _DIRECT_OPENER
 
 
+def _fresh_request(request: urllib.request.Request) -> urllib.request.Request:
+    """Build a clean request because proxy failure mutates Request.host."""
+    return urllib.request.Request(
+        request.full_url,
+        data=request.data,
+        headers=dict(request.header_items()),
+        origin_req_host=request.origin_req_host,
+        unverifiable=request.unverifiable,
+        method=request.get_method(),
+    )
+
+
 def open_github(request: urllib.request.Request, timeout: int) -> Any:
     """Open a GitHub request, retrying without proxies if the proxy is broken."""
     try:
@@ -39,9 +51,9 @@ def open_github(request: urllib.request.Request, timeout: int) -> Any:
         raise
     except (urllib.error.URLError, OSError) as first_error:
         try:
-            return _direct_opener().open(request, timeout=timeout)
-        except Exception:
-            raise first_error
+            return _direct_opener().open(_fresh_request(request), timeout=timeout)
+        except Exception as direct_error:
+            raise direct_error from first_error
 
 
 def github_headers(accept: str = "application/vnd.github+json") -> dict[str, str]:

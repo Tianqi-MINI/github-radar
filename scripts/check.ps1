@@ -32,7 +32,7 @@ if (Get-Command py -ErrorAction SilentlyContinue) {
 }
 
 Step "JS syntax" {
-    foreach ($file in @("util.js", "scoring.js", "onboard.js", "app.js")) {
+    foreach ($file in @("util.js", "scoring.js", "onboard.js", "guide.js", "app.js")) {
         node --check (Join-Path $root "app\js\$file")
         if ($LASTEXITCODE -ne 0) { throw "$file failed node --check" }
     }

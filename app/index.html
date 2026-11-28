@@ -212,6 +212,10 @@
             <span class="topbar-title">大学生 GitHub 精选雷达</span>
           </div>
           <div class="topbar-actions">
+            <button class="button ghost secondary" id="guide-button" type="button" aria-haspopup="dialog">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 18h.01"/><path d="M9.1 9a3 3 0 1 1 4.8 2.4c-1 .7-1.9 1.4-1.9 2.6"/><circle cx="12" cy="12" r="9"/></svg>
+              <span>使用指南</span>
+            </button>
             <button
               class="button ghost secondary github-auth-topbar"
               id="github-auth-button-top"
@@ -421,6 +425,35 @@
       </div>
     </div>
 
+    <div class="guide-overlay" id="guide-overlay" data-guide-overlay hidden>
+      <div class="guide-highlight" data-guide-highlight hidden></div>
+      <section
+        class="guide-card"
+        data-guide-card
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="guide-title"
+        aria-describedby="guide-body"
+      >
+        <div class="guide-card-head">
+          <p class="section-kicker">QUICK START GUIDE</p>
+          <span class="guide-progress" data-guide-progress aria-live="polite">1 / 1</span>
+        </div>
+        <h2 id="guide-title" data-guide-title></h2>
+        <p id="guide-body" data-guide-body></p>
+        <div class="guide-card-actions">
+          <button class="text-link guide-skip" type="button" data-guide-skip>跳过指引</button>
+          <div>
+            <button class="button ghost" type="button" data-guide-back>上一步</button>
+            <button class="button primary" type="button" data-guide-next>下一步</button>
+            <button class="guide-close" type="button" data-guide-close aria-label="关闭使用指南">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+
     <dialog class="repo-dialog" id="repo-dialog" aria-labelledby="repo-dialog-title">
       <div class="repo-dialog-head">
         <div>
@@ -455,15 +488,50 @@
 
         <section class="auth-section">
           <h3>创建一个只读 Token</h3>
+          <p class="auth-note">
+            推荐使用 Classic Personal Access Token。这个项目只读取公开 GitHub 信息，
+            不需要仓库写入、Actions、组织管理或管理员权限。
+          </p>
+          <div class="auth-url-box">
+            <span>Token 创建网址</span>
+            <a
+              class="auth-url-link"
+              href="https://github.com/settings/tokens/new?description=Interest%20Radar&amp;scopes="
+              target="_blank"
+              rel="noreferrer noopener"
+              data-token-create-url
+            >
+              <code data-token-create-url-text>https://github.com/settings/tokens/new?description=Interest%20Radar&amp;scopes=</code>
+            </a>
+          </div>
           <ol class="auth-steps">
             <li>
-              打开
-              <a class="text-link" href="https://github.com/settings/tokens/new?description=Interest%20Radar&scopes=" target="_blank" rel="noreferrer noopener">GitHub 新建 Token 页面</a>。
+              打开上方 Token 创建网址，并确认当前登录的是你自己的 GitHub 账号。
             </li>
-            <li>Note 填 <code>Interest Radar</code>，Expiration 选 90 天或更短。</li>
-            <li>Scopes 一个都不用勾，公开仓库只读就够用。</li>
-            <li>生成后复制以 <code>ghp_</code> 或 <code>github_pat_</code> 开头的字符串，粘贴到下面。</li>
+            <li>
+              在 Note 或名称中填写 <code>Interest Radar</code>，方便以后识别和撤销。
+            </li>
+            <li>
+              Expiration 选择 30 天、60 天或 90 天。建议先用较短有效期，
+              到期后重新生成。
+            </li>
+            <li>
+              Scopes 保持全部不勾选。公开仓库只读请求不需要额外权限；
+              不要授予 <code>repo</code>、<code>workflow</code> 或组织管理权限。
+            </li>
+            <li>
+              点击 Generate token。Token 只显示一次，复制完整的
+              <code>ghp_</code> 或 <code>github_pat_</code> 字符串。
+            </li>
+            <li>
+              粘贴到下方输入框，点击“保存并验证”。成功后会显示 GitHub 用户名，
+              额度提升到每小时 5,000 次。
+            </li>
           </ol>
+          <p class="auth-warning">
+            不要把这个 Token 粘贴到聊天、Issue、README 或代码仓库。若提示 Token
+            无效或已过期，请回到 GitHub 撤销旧 Token 后重新生成。
+          </p>
         </section>
 
         <section class="auth-section">
@@ -494,6 +562,7 @@
 <script src="./js/util.js" defer></script>
 <script src="./js/scoring.js" defer></script>
 <script src="./js/onboard.js" defer></script>
+<script src="./js/guide.js" defer></script>
 <script src="./js/app.js" defer></script>
   </body>
 </html>

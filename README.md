@@ -6,9 +6,18 @@
 无论你在找 AI 工具、小产品、科研工具、PPT 模板，还是想为作品集找灵感，都可以把
 它当作一个更省时间的起点：少刷搜索结果，多一点能直接上手的仓库。
 
+## 直接下载（Windows）
+
+- [下载 Windows 便携版](https://github.com/Tianqi-MINI/github-radar/raw/refs/heads/master/downloads/github-radar-portable_1.zip)
+- [下载 SHA-256 校验文件](https://github.com/Tianqi-MINI/github-radar/raw/refs/heads/master/downloads/github-radar-portable_1.zip.sha256)
+
+便携版已经内置 Python 运行时，不需要安装 Python，也不需要管理员权限。完整解压后
+双击 `start-github-radar.bat` 即可使用；详细步骤见下方“Windows 便携包”。
+
 ## 功能
 
 - **两分钟上手**：用一段自然语言描述自己的专业和目标，不用先学复杂筛选器。
+- **进入后有指引**：首次进入自动展示五步说明，顶栏也可随时重新打开。
 - **推荐有理由**：每条卡片都会说明项目是什么、和你有什么关系、大致怎么开始。
 - **质量先筛**：优先展示公开、非 fork、非归档、有明确开源许可证的仓库。
 - **看得见的进展**：可以连续换一批，推荐过的项目不会马上重复出现。
@@ -31,11 +40,12 @@
 
 ## Windows 便携包
 
-如果你拿到的是 `github-radar-portable.zip`，只想在 Windows 上试用，不用配置 Python：
+如果只想在 Windows 上试用，不用配置 Python：
 
-1. 完整解压 ZIP 文件到任意文件夹。
-2. 双击 `start-github-radar.bat`。
-3. 等待浏览器自动打开页面；关闭命令行窗口即可停止服务。
+1. 从上方“直接下载”入口取得 ZIP 文件。
+2. 完整解压 ZIP 文件到任意文件夹，不要在压缩软件预览窗口里直接运行。
+3. 双击 `start-github-radar.bat`。
+4. 等待浏览器自动打开页面；关闭命令行窗口即可停止服务。
 
 包内已附带官方 Python 3.12.10 嵌入式运行时，不需要管理员权限，也不修改系统
 环境变量。维护者可用以下命令重新打包：
@@ -77,6 +87,7 @@ app/                静态前端
     util.js         纯工具函数（可单独复用）
     scoring.js      纯评分算法（可单独复用）
     onboard.js      问卷解析与个人化
+    guide.js        零依赖站内使用指引
     app.js          页面编排与渲染
 server/             Python 后端包
   config.py         路径与可调参数
@@ -98,7 +109,7 @@ docs/               架构、演进与部署说明
 .\scripts\check.ps1
 ```
 
-包含：JS 语法检查、Python 编译、11 项单元测试、**托管模式验证**（403 拒绝、
+包含：JS 语法检查、Python 编译、12 项单元测试、**托管模式验证**（403 拒绝、
 90 秒缓存、限流 429、PORT 注入）、静态/本地路由检查、UI 回归。
 
 浏览器端回归（需要本机安装 Chrome）：
@@ -107,7 +118,8 @@ docs/               架构、演进与部署说明
 node scripts\verify-ui.js http://127.0.0.1:4173/
 ```
 
-覆盖桌面 / 手机端无横向溢出、卡片渲染、模块加载与控制台 0 错误。
+覆盖首次自动引导、五步前进与完成状态、桌面 / 手机端无横向溢出、卡片渲染、
+模块加载与控制台 0 错误。维护说明见 [docs/user-guide.md](docs/user-guide.md)。
 
 ### GitHub Token（可选）
 

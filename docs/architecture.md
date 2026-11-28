@@ -26,17 +26,22 @@
 | `js/util.js` | localStorage、转义、文本归一化、日期、复制 | 无（可单独复用） |
 | `js/scoring.js` | 权威度 / 新鲜度 / 综合分计算 | `util.js`（可单独复用） |
 | `js/onboard.js` | 问卷读写、自由文本语义解析、个人化打分 | `util` 的同名辅助函数 |
-| `js/app.js` | 状态、渲染、事件、实时抓取与回退 | 以上三者 |
+| `js/guide.js` | 首次引导、五步 spotlight、键盘关闭与完成状态 | 无第三方依赖 |
+| `js/app.js` | 状态、渲染、事件、实时抓取与回退 | 以上模块 |
 
 加载顺序固定在 `index.html`：
 
 ```
-util.js → scoring.js → onboard.js → app.js
+util.js → scoring.js → onboard.js → guide.js → app.js
 ```
 
 `app.js` 用**函数声明**包装 `util.js` 的能力，而不是顶层 `const` 解构。
 原因：`onboard.js` 也声明了同名的 `readJSON` 等函数，顶层 `const` 会触发
 `SyntaxError: Identifier 'readJSON' has already been declared`，整页不初始化。
+
+`guide.js` 在独立 IIFE 中运行，只通过 `window.RadarGuide` 暴露主动打开与关闭；
+首次进入时读取 `SIGNAL_ONBOARD` 的配置状态，并用本地键
+`signal-radar-guide-seen-v1` 防止重复自动展示。
 
 ## 后端模块
 
@@ -63,6 +68,8 @@ util.js → scoring.js → onboard.js → app.js
 - **限流**：`/api/live-feed` 与 `/api/live-repo` 按客户端 IP 做滑动窗口限流（默认 30 次/60 秒），超限返回 429 + `Retry-After`。
 - **缓存**：`/api/live-feed` 按 `(focuses, major, page, stage, need, terms)` 做进程内 TTL 缓存（默认 90 秒），同一 key 并发请求只做一次上游调用。
 - **代理信任**：`RADAR_TRUST_PROXY=1` 时，限流使用 `X-Forwarded-For` 第一个 IP 作为客户端 key；默认不信任（本地直连）。
+- **GitHub 代理回退**：默认请求失败后，`github_api.py` 会先重建干净的
+  `Request`，再用禁用代理的 opener 直连；不能复用已被代理层改写的请求对象。
 
 ## 扩展点
 
