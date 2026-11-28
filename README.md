@@ -6,10 +6,15 @@
 无论你在找 AI 工具、小产品、科研工具、PPT 模板，还是想为作品集找灵感，都可以把
 它当作一个更省时间的起点：少刷搜索结果，多一点能直接上手的仓库。
 
-## 直接下载（Windows）
+## 下载（Windows）
 
 - [下载 Windows 便携版](https://github.com/Tianqi-MINI/github-radar/raw/refs/heads/master/downloads/github-radar-portable_1.zip)
 - [下载 SHA-256 校验文件](https://github.com/Tianqi-MINI/github-radar/raw/refs/heads/master/downloads/github-radar-portable_1.zip.sha256)
+
+如果上面的单文件直链被网络拦截，可下载
+[完整仓库归档](https://github.com/Tianqi-MINI/github-radar/archive/refs/heads/master.zip)。
+解压归档后，在 `downloads/` 目录中找到 `github-radar-portable_1.zip`，再解压一次即可
+得到可运行的程序。
 
 便携版已经内置 Python 运行时，不需要安装 Python，也不需要管理员权限。完整解压后
 双击 `start-github-radar.bat` 即可使用；详细步骤见下方“Windows 便携包”。

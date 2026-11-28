@@ -142,12 +142,15 @@ def request_json(
             return response.status, parsed, dict(response.headers)
     except urllib.error.HTTPError as exc:
         raw = exc.read()
-        message = f"GitHub API returned HTTP {exc.code}"
+        detail = ""
         try:
             parsed = json.loads(raw.decode("utf-8"))
-            message = parsed.get("message") or message
+            detail = str(parsed.get("message") or "")
         except Exception:
-            parsed = None
+            pass
+        message = f"GitHub API returned HTTP {exc.code}"
+        if detail:
+            message = f"{message}: {detail}"
         raise RuntimeError(message) from exc
 
 
