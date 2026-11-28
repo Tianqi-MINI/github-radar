@@ -1,0 +1,59 @@
+name: Publish Windows portable release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out the tagged source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Verify the committed package
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m zipfile -t downloads/github-radar-portable_1.zip
+          (
+            cd downloads
+            sha256sum --check --strict github-radar-portable_1.zip.sha256
+          )
+
+      - name: Prepare stable release asset names
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p release-assets
+          cp downloads/github-radar-portable_1.zip \
+            release-assets/github-radar-portable.zip
+          digest="$(awk '{print $1}' downloads/github-radar-portable_1.zip.sha256)"
+          printf '%s  github-radar-portable.zip\n' "$digest" \
+            > release-assets/github-radar-portable.zip.sha256
+          (
+            cd release-assets
+            sha256sum --check --strict github-radar-portable.zip.sha256
+          )
+
+      - name: Create or update the GitHub release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            gh release upload "$GITHUB_REF_NAME" release-assets/* --clobber
+          else
+            gh release create "$GITHUB_REF_NAME" release-assets/* \
+              --verify-tag \
+              --latest \
+              --title "Windows 便携版 ${GITHUB_REF_NAME}" \
+              --notes-file docs/release-notes.md
+          fi
+

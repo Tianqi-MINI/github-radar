@@ -8,10 +8,10 @@
 
 ## 下载（Windows）
 
-- [下载 Windows 便携版](https://github.com/Tianqi-MINI/github-radar/raw/refs/heads/master/downloads/github-radar-portable_1.zip)
-- [下载 SHA-256 校验文件](https://github.com/Tianqi-MINI/github-radar/raw/refs/heads/master/downloads/github-radar-portable_1.zip.sha256)
+- [下载 Windows 便携版](https://github.com/Tianqi-MINI/github-radar/releases/latest/download/github-radar-portable.zip)
+- [下载 SHA-256 校验文件](https://github.com/Tianqi-MINI/github-radar/releases/latest/download/github-radar-portable.zip.sha256)
 
-如果上面的单文件直链被网络拦截，可下载
+如果上面的 Release 地址被网络拦截，可下载
 [完整仓库归档](https://github.com/Tianqi-MINI/github-radar/archive/refs/heads/master.zip)。
 解压归档后，在 `downloads/` 目录中找到 `github-radar-portable_1.zip`，再解压一次即可
 得到可运行的程序。
@@ -59,8 +59,9 @@
 .\scripts\package-portable.ps1 -PythonEmbedZip .\outputs\python-3.12.10-embed-amd64.zip
 ```
 
-打包脚本会排除 Git 数据、密钥文件、缓存和日志；ZIP 与 SHA256 校验文件生成在
-`outputs/` 目录，不会进入 Git 仓库。
+打包脚本会排除 Git 数据、密钥文件、缓存和日志；初次生成在 `outputs/`，校验后
+把版本化副本放入 `downloads/`。推送 `v*` 标签时，GitHub Actions 会复核哈希并
+创建 Releases 中的稳定下载文件。
 
 想让同一宿舍或实验室的电脑也能访问：
 
